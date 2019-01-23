@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		3D2A470D7824C98973FE4670 /* Pods_Babylon_iOS_Interview_DemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9774DBF773EB073B71D8A75 /* Pods_Babylon_iOS_Interview_DemoTests.framework */; };
+		591B281321F61AC300EACE47 /* UINavigationController+ModalFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591B281221F61AC300EACE47 /* UINavigationController+ModalFlow.swift */; };
+		591B281521F61B7400EACE47 /* RootFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591B281421F61B7400EACE47 /* RootFlowController.swift */; };
 		5947444021F1E8DE00BDE970 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5947443F21F1E8DE00BDE970 /* AppDelegate.swift */; };
-		5947444221F1E8DE00BDE970 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5947444121F1E8DE00BDE970 /* ViewController.swift */; };
-		5947444521F1E8DE00BDE970 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5947444321F1E8DE00BDE970 /* Main.storyboard */; };
 		5947444721F1E8DF00BDE970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5947444621F1E8DF00BDE970 /* Assets.xcassets */; };
 		5947444A21F1E8DF00BDE970 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5947444821F1E8DF00BDE970 /* LaunchScreen.storyboard */; };
 		5947445521F1E8DF00BDE970 /* Babylon_iOS_Interview_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5947445421F1E8DF00BDE970 /* Babylon_iOS_Interview_DemoTests.swift */; };
+		59A5009021F7762700DF68E6 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5008F21F7762700DF68E6 /* RootBuilder.swift */; };
+		59A5009221F77A7900DF68E6 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5009121F77A7900DF68E6 /* RootViewController.swift */; };
+		59A5009421F77A9700DF68E6 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5009321F77A9700DF68E6 /* RootViewModel.swift */; };
+		59A5009721F77EC600DF68E6 /* TabRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5009621F77EC600DF68E6 /* TabRoute.swift */; };
+		59A5009921F7855D00DF68E6 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5009821F7855D00DF68E6 /* PostsViewController.swift */; };
+		59A5009B21F7858900DF68E6 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5009A21F7858900DF68E6 /* AboutMeViewController.swift */; };
+		59A500A121F7E9EC00DF68E6 /* Buildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A500A021F7E9EC00DF68E6 /* Buildable.swift */; };
+		59F1548021F600860062FD19 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F1547F21F600860062FD19 /* Flow.swift */; };
+		59F1548321F600D40062FD19 /* UIViewController+ModalFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F1548221F600D40062FD19 /* UIViewController+ModalFlow.swift */; };
 		7DA7AC53EBFE1E8DECDBDAC2 /* Pods_Babylon_iOS_Interview_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4D35343194C1EC00D3F773 /* Pods_Babylon_iOS_Interview_Demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,16 +37,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		591B281221F61AC300EACE47 /* UINavigationController+ModalFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+ModalFlow.swift"; sourceTree = "<group>"; };
+		591B281421F61B7400EACE47 /* RootFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlowController.swift; sourceTree = "<group>"; };
 		5947443C21F1E8DE00BDE970 /* Babylon iOS Interview Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Babylon iOS Interview Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5947443F21F1E8DE00BDE970 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5947444121F1E8DE00BDE970 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5947444421F1E8DE00BDE970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5947444621F1E8DF00BDE970 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5947444921F1E8DF00BDE970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5947444B21F1E8DF00BDE970 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5947445021F1E8DF00BDE970 /* Babylon iOS Interview DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Babylon iOS Interview DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5947445421F1E8DF00BDE970 /* Babylon_iOS_Interview_DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Babylon_iOS_Interview_DemoTests.swift; sourceTree = "<group>"; };
 		5947445621F1E8DF00BDE970 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59A5008F21F7762700DF68E6 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
+		59A5009121F77A7900DF68E6 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		59A5009321F77A9700DF68E6 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		59A5009621F77EC600DF68E6 /* TabRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabRoute.swift; sourceTree = "<group>"; };
+		59A5009821F7855D00DF68E6 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
+		59A5009A21F7858900DF68E6 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
+		59A500A021F7E9EC00DF68E6 /* Buildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buildable.swift; sourceTree = "<group>"; };
+		59F1547F21F600860062FD19 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
+		59F1548221F600D40062FD19 /* UIViewController+ModalFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ModalFlow.swift"; sourceTree = "<group>"; };
 		71E92E3AEE7939847E208AC4 /* Pods-Babylon iOS Interview Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylon iOS Interview Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babylon iOS Interview Demo/Pods-Babylon iOS Interview Demo.release.xcconfig"; sourceTree = "<group>"; };
 		9A4D35343194C1EC00D3F773 /* Pods_Babylon_iOS_Interview_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babylon_iOS_Interview_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5A564F4F78A40634ACFF0E0 /* Pods-Babylon iOS Interview DemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylon iOS Interview DemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babylon iOS Interview DemoTests/Pods-Babylon iOS Interview DemoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +104,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		591B281621F61B9C00EACE47 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5947444B21F1E8DF00BDE970 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		5947443321F1E8DE00BDE970 = {
 			isa = PBXGroup;
 			children = (
@@ -109,12 +135,13 @@
 		5947443E21F1E8DE00BDE970 /* Babylon iOS Interview Demo */ = {
 			isa = PBXGroup;
 			children = (
-				5947443F21F1E8DE00BDE970 /* AppDelegate.swift */,
-				5947444121F1E8DE00BDE970 /* ViewController.swift */,
-				5947444321F1E8DE00BDE970 /* Main.storyboard */,
-				5947444621F1E8DF00BDE970 /* Assets.xcassets */,
-				5947444821F1E8DF00BDE970 /* LaunchScreen.storyboard */,
-				5947444B21F1E8DF00BDE970 /* Info.plist */,
+				59F4CDC721F1EF47008EB438 /* App */,
+				59F4CDC321F1EEF9008EB438 /* Features */,
+				59F1547D21F5FD6C0062FD19 /* Navigation */,
+				59F1547E21F5FD860062FD19 /* Networking */,
+				59A5009F21F7E9DC00DF68E6 /* Protocols */,
+				59F4CDC221F1EE53008EB438 /* Resources */,
+				591B281621F61B9C00EACE47 /* Supporting Files */,
 			);
 			path = "Babylon iOS Interview Demo";
 			sourceTree = "<group>";
@@ -126,6 +153,102 @@
 				5947445621F1E8DF00BDE970 /* Info.plist */,
 			);
 			path = "Babylon iOS Interview DemoTests";
+			sourceTree = "<group>";
+		};
+		59A5008E21F775DE00DF68E6 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				59A5009521F77EA600DF68E6 /* Models */,
+				59A5008F21F7762700DF68E6 /* RootBuilder.swift */,
+				591B281421F61B7400EACE47 /* RootFlowController.swift */,
+				59A5009321F77A9700DF68E6 /* RootViewModel.swift */,
+				59A5009121F77A7900DF68E6 /* RootViewController.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		59A5009521F77EA600DF68E6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				59A5009621F77EC600DF68E6 /* TabRoute.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		59A5009F21F7E9DC00DF68E6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				59A500A021F7E9EC00DF68E6 /* Buildable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		59F1547D21F5FD6C0062FD19 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				59F1548121F600C20062FD19 /* Extensions */,
+				59F1547F21F600860062FD19 /* Flow.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		59F1547E21F5FD860062FD19 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		59F1548121F600C20062FD19 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				59F1548221F600D40062FD19 /* UIViewController+ModalFlow.swift */,
+				591B281221F61AC300EACE47 /* UINavigationController+ModalFlow.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		59F4CDC221F1EE53008EB438 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5947444821F1E8DF00BDE970 /* LaunchScreen.storyboard */,
+				5947444621F1E8DF00BDE970 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		59F4CDC321F1EEF9008EB438 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				59A5008E21F775DE00DF68E6 /* Root */,
+				59F4CDC621F1EF18008EB438 /* Posts */,
+				59F4CDC521F1EF0F008EB438 /* About Me */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		59F4CDC521F1EF0F008EB438 /* About Me */ = {
+			isa = PBXGroup;
+			children = (
+				59A5009A21F7858900DF68E6 /* AboutMeViewController.swift */,
+			);
+			path = "About Me";
+			sourceTree = "<group>";
+		};
+		59F4CDC621F1EF18008EB438 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				59A5009821F7855D00DF68E6 /* PostsViewController.swift */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
+		59F4CDC721F1EF47008EB438 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5947443F21F1E8DE00BDE970 /* AppDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,7 +337,6 @@
 			files = (
 				5947444A21F1E8DF00BDE970 /* LaunchScreen.storyboard in Resources */,
 				5947444721F1E8DF00BDE970 /* Assets.xcassets in Resources */,
-				5947444521F1E8DE00BDE970 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,8 +435,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5947444221F1E8DE00BDE970 /* ViewController.swift in Sources */,
+				59A5009221F77A7900DF68E6 /* RootViewController.swift in Sources */,
+				59F1548321F600D40062FD19 /* UIViewController+ModalFlow.swift in Sources */,
+				59A5009021F7762700DF68E6 /* RootBuilder.swift in Sources */,
+				59A5009721F77EC600DF68E6 /* TabRoute.swift in Sources */,
+				59A5009921F7855D00DF68E6 /* PostsViewController.swift in Sources */,
+				591B281321F61AC300EACE47 /* UINavigationController+ModalFlow.swift in Sources */,
+				59A500A121F7E9EC00DF68E6 /* Buildable.swift in Sources */,
+				59F1548021F600860062FD19 /* Flow.swift in Sources */,
+				591B281521F61B7400EACE47 /* RootFlowController.swift in Sources */,
+				59A5009421F77A9700DF68E6 /* RootViewModel.swift in Sources */,
 				5947444021F1E8DE00BDE970 /* AppDelegate.swift in Sources */,
+				59A5009B21F7858900DF68E6 /* AboutMeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,14 +469,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5947444321F1E8DE00BDE970 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5947444421F1E8DE00BDE970 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5947444821F1E8DF00BDE970 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -414,6 +538,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -468,6 +593,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -479,7 +605,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UP6QXSY3FS;
-				INFOPLIST_FILE = "Babylon iOS Interview Demo/Info.plist";
+				INFOPLIST_FILE = "Babylon iOS Interview Demo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -498,7 +624,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UP6QXSY3FS;
-				INFOPLIST_FILE = "Babylon iOS Interview Demo/Info.plist";
+				INFOPLIST_FILE = "Babylon iOS Interview Demo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
