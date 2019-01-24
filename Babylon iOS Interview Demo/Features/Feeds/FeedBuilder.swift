@@ -15,7 +15,7 @@ struct FeedBuilder {
     
     func make() -> UIViewController {
         
-        let store = Store()
+        let store = FeedStore()
         let viewModel = FeedViewModel(with: store)
         let viewController = FeedViewController(with: viewModel)
         let navigationController = UINavigationController(rootViewController: viewController)

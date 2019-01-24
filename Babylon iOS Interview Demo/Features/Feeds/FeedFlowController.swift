@@ -38,12 +38,12 @@ extension FeedFlowController {
         switch route {
         case let .showAlert(error):
             print("SHOW ERROR: \(error)")
-        case let .showFeed(feed, error):
-            print("SHOW FEED WITH ERROR \(error)")
+        case let .showFeed(posts):
+            print("SHOW FEED! \(posts.count)")
         case .showLoading():
             print("SHOW LOADING")
         case let .showPost(post):
-            print("SHOW POST")
+            print("SHOW POST \(post.body)")
         }
     }
 }

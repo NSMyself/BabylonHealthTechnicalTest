@@ -22,6 +22,8 @@
 		59A500A121F7E9EC00DF68E6 /* Buildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A500A021F7E9EC00DF68E6 /* Buildable.swift */; };
 		59ADB35821F9F53500C72527 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59ADB35721F9F53500C72527 /* Post.swift */; };
 		59ADB35A21F9FCFC00C72527 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59ADB35921F9FCFC00C72527 /* Feed.swift */; };
+		59ADB35D21FA239200C72527 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59ADB35C21FA239200C72527 /* FeedStore.swift */; };
+		59ADB36121FA7C6100C72527 /* FeedViewModel+Reduce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59ADB36021FA7C6100C72527 /* FeedViewModel+Reduce.swift */; };
 		59F1548021F600860062FD19 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F1547F21F600860062FD19 /* Flow.swift */; };
 		59F1548321F600D40062FD19 /* UIViewController+ModalFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F1548221F600D40062FD19 /* UIViewController+ModalFlow.swift */; };
 		59F195BA21F88080009E744A /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195B921F88080009E744A /* TabItem.swift */; };
@@ -35,7 +37,7 @@
 		59F195D521F8E60A009E744A /* FeedBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195D421F8E60A009E744A /* FeedBuilder.swift */; };
 		59F195D921F8E990009E744A /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195D821F8E990009E744A /* FeedViewModel.swift */; };
 		59F195DB21F92E62009E744A /* NoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195DA21F92E62009E744A /* NoError.swift */; };
-		59F195DD21F9D7AE009E744A /* FeedViewModel+StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195DC21F9D7AE009E744A /* FeedViewModel+StateMachine.swift */; };
+		59F195DD21F9D7AE009E744A /* FeedViewModel+CoreConcepts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195DC21F9D7AE009E744A /* FeedViewModel+CoreConcepts.swift */; };
 		7DA7AC53EBFE1E8DECDBDAC2 /* Pods_Babylon_iOS_Interview_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4D35343194C1EC00D3F773 /* Pods_Babylon_iOS_Interview_Demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +70,8 @@
 		59A500A021F7E9EC00DF68E6 /* Buildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buildable.swift; sourceTree = "<group>"; };
 		59ADB35721F9F53500C72527 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		59ADB35921F9FCFC00C72527 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		59ADB35C21FA239200C72527 /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
+		59ADB36021FA7C6100C72527 /* FeedViewModel+Reduce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewModel+Reduce.swift"; sourceTree = "<group>"; };
 		59F1547F21F600860062FD19 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		59F1548221F600D40062FD19 /* UIViewController+ModalFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ModalFlow.swift"; sourceTree = "<group>"; };
 		59F195B921F88080009E744A /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
@@ -81,7 +85,7 @@
 		59F195D421F8E60A009E744A /* FeedBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBuilder.swift; sourceTree = "<group>"; };
 		59F195D821F8E990009E744A /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		59F195DA21F92E62009E744A /* NoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoError.swift; sourceTree = "<group>"; };
-		59F195DC21F9D7AE009E744A /* FeedViewModel+StateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewModel+StateMachine.swift"; sourceTree = "<group>"; };
+		59F195DC21F9D7AE009E744A /* FeedViewModel+CoreConcepts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewModel+CoreConcepts.swift"; sourceTree = "<group>"; };
 		71E92E3AEE7939847E208AC4 /* Pods-Babylon iOS Interview Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylon iOS Interview Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babylon iOS Interview Demo/Pods-Babylon iOS Interview Demo.release.xcconfig"; sourceTree = "<group>"; };
 		9A4D35343194C1EC00D3F773 /* Pods_Babylon_iOS_Interview_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babylon_iOS_Interview_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5A564F4F78A40634ACFF0E0 /* Pods-Babylon iOS Interview DemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylon iOS Interview DemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babylon iOS Interview DemoTests/Pods-Babylon iOS Interview DemoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -219,16 +223,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		59ADB35B21FA0FFA00C72527 /* Show Feed */ = {
-			isa = PBXGroup;
-			children = (
-				59A5009821F7855D00DF68E6 /* FeedViewController.swift */,
-				59F195D821F8E990009E744A /* FeedViewModel.swift */,
-				59F195DC21F9D7AE009E744A /* FeedViewModel+StateMachine.swift */,
-			);
-			path = "Show Feed";
-			sourceTree = "<group>";
-		};
 		59F1547D21F5FD6C0062FD19 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,10 +308,14 @@
 			isa = PBXGroup;
 			children = (
 				59ADB35621F9F52C00C72527 /* Models */,
-				59ADB35B21FA0FFA00C72527 /* Show Feed */,
 				59F195D121F8E500009E744A /* Show Post */,
 				59F195D421F8E60A009E744A /* FeedBuilder.swift */,
 				59F195D221F8E5F1009E744A /* FeedFlowController.swift */,
+				59A5009821F7855D00DF68E6 /* FeedViewController.swift */,
+				59F195D821F8E990009E744A /* FeedViewModel.swift */,
+				59F195DC21F9D7AE009E744A /* FeedViewModel+CoreConcepts.swift */,
+				59ADB36021FA7C6100C72527 /* FeedViewModel+Reduce.swift */,
+				59ADB35C21FA239200C72527 /* FeedStore.swift */,
 			);
 			path = Feeds;
 			sourceTree = "<group>";
@@ -516,7 +514,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59F195DD21F9D7AE009E744A /* FeedViewModel+StateMachine.swift in Sources */,
+				59F195DD21F9D7AE009E744A /* FeedViewModel+CoreConcepts.swift in Sources */,
 				59ADB35A21F9FCFC00C72527 /* Feed.swift in Sources */,
 				59F195D521F8E60A009E744A /* FeedBuilder.swift in Sources */,
 				59A5009221F77A7900DF68E6 /* RootViewController.swift in Sources */,
@@ -527,10 +525,12 @@
 				59A5009921F7855D00DF68E6 /* FeedViewController.swift in Sources */,
 				591B281321F61AC300EACE47 /* UINavigationController+ModalFlow.swift in Sources */,
 				59F195CD21F8C9F7009E744A /* TabPresentable.swift in Sources */,
+				59ADB36121FA7C6100C72527 /* FeedViewModel+Reduce.swift in Sources */,
 				59A500A121F7E9EC00DF68E6 /* Buildable.swift in Sources */,
 				59F1548021F600860062FD19 /* Flow.swift in Sources */,
 				59F195D321F8E5F1009E744A /* FeedFlowController.swift in Sources */,
 				59F195D921F8E990009E744A /* FeedViewModel.swift in Sources */,
+				59ADB35D21FA239200C72527 /* FeedStore.swift in Sources */,
 				59F195BC21F88097009E744A /* Tab.swift in Sources */,
 				59ADB35821F9F53500C72527 /* Post.swift in Sources */,
 				59F195DB21F92E62009E744A /* NoError.swift in Sources */,

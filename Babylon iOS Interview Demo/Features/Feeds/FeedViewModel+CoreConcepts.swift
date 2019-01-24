@@ -12,25 +12,26 @@ extension FeedViewModel {
     
     enum State {
         case loading
-        case loaded([Post], StoreError?)
-        case loadFailed(StoreError)
+        case loaded([Post])
+        case loadingFailed(FeedStore.Error)
         case showing(post: Post)
     }
     
     enum Event {
-        case didLoad([Post], StoreError?)
-        case didFail
+        case didLoad([Post])
+        case didFail(FeedStore.Error)
         case ui(Action)
     }
     
     enum Action {
+        case retry
         case didSelect(post: Post)
     }
     
     enum Route {
         case showLoading()
-        case showFeed(feed: Feed, error: Error?)
-        case showAlert(alert: Error)
+        case showFeed(feed: Feed)
+        case showAlert(alert: FeedStore.Error)
         case showPost(_ post: Post)
     }
 }
@@ -42,7 +43,7 @@ extension FeedViewModel.State: Equatable {
             return true
         case (.loaded, .loaded):
             return true
-        case (.loadFailed, .loadFailed):
+        case (.loadingFailed, .loadingFailed):
             return true
         case let (.showing(post1), .showing(post2)):
             return post1 == post2
