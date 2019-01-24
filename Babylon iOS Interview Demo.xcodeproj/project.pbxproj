@@ -20,21 +20,22 @@
 		59A5009921F7855D00DF68E6 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5009821F7855D00DF68E6 /* FeedViewController.swift */; };
 		59A5009B21F7858900DF68E6 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5009A21F7858900DF68E6 /* AboutMeViewController.swift */; };
 		59A500A121F7E9EC00DF68E6 /* Buildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A500A021F7E9EC00DF68E6 /* Buildable.swift */; };
+		59ADB35821F9F53500C72527 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59ADB35721F9F53500C72527 /* Post.swift */; };
+		59ADB35A21F9FCFC00C72527 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59ADB35921F9FCFC00C72527 /* Feed.swift */; };
 		59F1548021F600860062FD19 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F1547F21F600860062FD19 /* Flow.swift */; };
 		59F1548321F600D40062FD19 /* UIViewController+ModalFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F1548221F600D40062FD19 /* UIViewController+ModalFlow.swift */; };
 		59F195BA21F88080009E744A /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195B921F88080009E744A /* TabItem.swift */; };
 		59F195BC21F88097009E744A /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195BB21F88097009E744A /* Tab.swift */; };
 		59F195BF21F88418009E744A /* RootDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195BE21F88418009E744A /* RootDelegate.swift */; };
 		59F195C121F88924009E744A /* AboutMeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195C021F88924009E744A /* AboutMeBuilder.swift */; };
-		59F195C621F88A07009E744A /* TabFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195C521F88A07009E744A /* TabFeature.swift */; };
 		59F195C921F88B86009E744A /* UITabBarItem+initWithTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195C821F88B86009E744A /* UITabBarItem+initWithTabItem.swift */; };
 		59F195CD21F8C9F7009E744A /* TabPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195CC21F8C9F7009E744A /* TabPresentable.swift */; };
 		59F195CF21F8D17F009E744A /* Sequence+keyPathToGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195CE21F8D17F009E744A /* Sequence+keyPathToGetter.swift */; };
 		59F195D321F8E5F1009E744A /* FeedFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195D221F8E5F1009E744A /* FeedFlowController.swift */; };
 		59F195D521F8E60A009E744A /* FeedBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195D421F8E60A009E744A /* FeedBuilder.swift */; };
-		59F195D721F8E740009E744A /* FeedRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195D621F8E740009E744A /* FeedRoute.swift */; };
 		59F195D921F8E990009E744A /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195D821F8E990009E744A /* FeedViewModel.swift */; };
 		59F195DB21F92E62009E744A /* NoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195DA21F92E62009E744A /* NoError.swift */; };
+		59F195DD21F9D7AE009E744A /* FeedViewModel+StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195DC21F9D7AE009E744A /* FeedViewModel+StateMachine.swift */; };
 		7DA7AC53EBFE1E8DECDBDAC2 /* Pods_Babylon_iOS_Interview_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4D35343194C1EC00D3F773 /* Pods_Babylon_iOS_Interview_Demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,21 +66,22 @@
 		59A5009821F7855D00DF68E6 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		59A5009A21F7858900DF68E6 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 		59A500A021F7E9EC00DF68E6 /* Buildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buildable.swift; sourceTree = "<group>"; };
+		59ADB35721F9F53500C72527 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		59ADB35921F9FCFC00C72527 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		59F1547F21F600860062FD19 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		59F1548221F600D40062FD19 /* UIViewController+ModalFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ModalFlow.swift"; sourceTree = "<group>"; };
 		59F195B921F88080009E744A /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		59F195BB21F88097009E744A /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		59F195BE21F88418009E744A /* RootDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootDelegate.swift; sourceTree = "<group>"; };
 		59F195C021F88924009E744A /* AboutMeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeBuilder.swift; sourceTree = "<group>"; };
-		59F195C521F88A07009E744A /* TabFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabFeature.swift; sourceTree = "<group>"; };
 		59F195C821F88B86009E744A /* UITabBarItem+initWithTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarItem+initWithTabItem.swift"; sourceTree = "<group>"; };
 		59F195CC21F8C9F7009E744A /* TabPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabPresentable.swift; sourceTree = "<group>"; };
 		59F195CE21F8D17F009E744A /* Sequence+keyPathToGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+keyPathToGetter.swift"; sourceTree = "<group>"; };
 		59F195D221F8E5F1009E744A /* FeedFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFlowController.swift; sourceTree = "<group>"; };
 		59F195D421F8E60A009E744A /* FeedBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBuilder.swift; sourceTree = "<group>"; };
-		59F195D621F8E740009E744A /* FeedRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRoute.swift; sourceTree = "<group>"; };
 		59F195D821F8E990009E744A /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		59F195DA21F92E62009E744A /* NoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoError.swift; sourceTree = "<group>"; };
+		59F195DC21F9D7AE009E744A /* FeedViewModel+StateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewModel+StateMachine.swift"; sourceTree = "<group>"; };
 		71E92E3AEE7939847E208AC4 /* Pods-Babylon iOS Interview Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylon iOS Interview Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babylon iOS Interview Demo/Pods-Babylon iOS Interview Demo.release.xcconfig"; sourceTree = "<group>"; };
 		9A4D35343194C1EC00D3F773 /* Pods_Babylon_iOS_Interview_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babylon_iOS_Interview_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5A564F4F78A40634ACFF0E0 /* Pods-Babylon iOS Interview DemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylon iOS Interview DemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babylon iOS Interview DemoTests/Pods-Babylon iOS Interview DemoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -208,6 +210,25 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		59ADB35621F9F52C00C72527 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				59ADB35721F9F53500C72527 /* Post.swift */,
+				59ADB35921F9FCFC00C72527 /* Feed.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		59ADB35B21FA0FFA00C72527 /* Show Feed */ = {
+			isa = PBXGroup;
+			children = (
+				59A5009821F7855D00DF68E6 /* FeedViewController.swift */,
+				59F195D821F8E990009E744A /* FeedViewModel.swift */,
+				59F195DC21F9D7AE009E744A /* FeedViewModel+StateMachine.swift */,
+			);
+			path = "Show Feed";
+			sourceTree = "<group>";
+		};
 		59F1547D21F5FD6C0062FD19 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,7 +261,6 @@
 		59F195C221F889DF009E744A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				59F195C521F88A07009E744A /* TabFeature.swift */,
 				59F195DA21F92E62009E744A /* NoError.swift */,
 			);
 			path = Models;
@@ -275,7 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				59A5008E21F775DE00DF68E6 /* Root */,
-				59F4CDC621F1EF18008EB438 /* Feed */,
+				59F4CDC621F1EF18008EB438 /* Feeds */,
 				59F4CDC521F1EF0F008EB438 /* About Me */,
 			);
 			path = Features;
@@ -290,17 +310,16 @@
 			path = "About Me";
 			sourceTree = "<group>";
 		};
-		59F4CDC621F1EF18008EB438 /* Feed */ = {
+		59F4CDC621F1EF18008EB438 /* Feeds */ = {
 			isa = PBXGroup;
 			children = (
+				59ADB35621F9F52C00C72527 /* Models */,
+				59ADB35B21FA0FFA00C72527 /* Show Feed */,
 				59F195D121F8E500009E744A /* Show Post */,
 				59F195D421F8E60A009E744A /* FeedBuilder.swift */,
 				59F195D221F8E5F1009E744A /* FeedFlowController.swift */,
-				59A5009821F7855D00DF68E6 /* FeedViewController.swift */,
-				59F195D621F8E740009E744A /* FeedRoute.swift */,
-				59F195D821F8E990009E744A /* FeedViewModel.swift */,
 			);
-			path = Feed;
+			path = Feeds;
 			sourceTree = "<group>";
 		};
 		59F4CDC721F1EF47008EB438 /* App */ = {
@@ -467,6 +486,7 @@
 				"${BUILT_PRODUCTS_DIR}/BentoKit/BentoKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FlexibleDiff/FlexibleDiff.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveFeedback/ReactiveFeedback.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/StyleSheets/StyleSheets.framework",
@@ -479,6 +499,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BentoKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlexibleDiff.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveFeedback.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StyleSheets.framework",
@@ -495,22 +516,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59F195DD21F9D7AE009E744A /* FeedViewModel+StateMachine.swift in Sources */,
+				59ADB35A21F9FCFC00C72527 /* Feed.swift in Sources */,
 				59F195D521F8E60A009E744A /* FeedBuilder.swift in Sources */,
 				59A5009221F77A7900DF68E6 /* RootViewController.swift in Sources */,
 				59F1548321F600D40062FD19 /* UIViewController+ModalFlow.swift in Sources */,
 				59A5009021F7762700DF68E6 /* RootBuilder.swift in Sources */,
 				59A5009721F77EC600DF68E6 /* TabRoute.swift in Sources */,
-				59F195D721F8E740009E744A /* FeedRoute.swift in Sources */,
 				59F195CF21F8D17F009E744A /* Sequence+keyPathToGetter.swift in Sources */,
 				59A5009921F7855D00DF68E6 /* FeedViewController.swift in Sources */,
 				591B281321F61AC300EACE47 /* UINavigationController+ModalFlow.swift in Sources */,
-				59F195C621F88A07009E744A /* TabFeature.swift in Sources */,
 				59F195CD21F8C9F7009E744A /* TabPresentable.swift in Sources */,
 				59A500A121F7E9EC00DF68E6 /* Buildable.swift in Sources */,
 				59F1548021F600860062FD19 /* Flow.swift in Sources */,
 				59F195D321F8E5F1009E744A /* FeedFlowController.swift in Sources */,
 				59F195D921F8E990009E744A /* FeedViewModel.swift in Sources */,
 				59F195BC21F88097009E744A /* Tab.swift in Sources */,
+				59ADB35821F9F53500C72527 /* Post.swift in Sources */,
 				59F195DB21F92E62009E744A /* NoError.swift in Sources */,
 				59F195BF21F88418009E744A /* RootDelegate.swift in Sources */,
 				59F195C921F88B86009E744A /* UITabBarItem+initWithTabItem.swift in Sources */,

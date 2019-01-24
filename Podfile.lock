@@ -10,27 +10,32 @@ PODS:
   - FlexibleDiff (0.0.5)
   - ReactiveCocoa (8.0.2):
     - ReactiveSwift (~> 4.0)
+  - ReactiveFeedback (0.4.1):
+    - ReactiveSwift (~> 4.0)
   - ReactiveSwift (4.0.0):
     - Result (~> 4.0)
   - Result (4.1.0)
   - StyleSheets (0.3)
 
 DEPENDENCIES:
-  - "Bento (from `git@github.com:Babylonpartners/Bento.git`, branch `master`)"
+  - "Bento (from `git@github.com:NSMyself/Bento.git`, branch `master`)"
   - "BentoKit (from `git@github.com:Babylonpartners/Bento.git`, branch `master`)"
+  - ReactiveFeedback
+  - ReactiveSwift
   - "StyleSheets (from `git@github.com:Babylonpartners/Bento.git`, branch `master`)"
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - FlexibleDiff
     - ReactiveCocoa
+    - ReactiveFeedback
     - ReactiveSwift
     - Result
 
 EXTERNAL SOURCES:
   Bento:
     :branch: master
-    :git: "git@github.com:Babylonpartners/Bento.git"
+    :git: "git@github.com:NSMyself/Bento.git"
   BentoKit:
     :branch: master
     :git: "git@github.com:Babylonpartners/Bento.git"
@@ -40,24 +45,25 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Bento:
-    :commit: 52d1ababf9defd7d95a857958276501757883535
-    :git: "git@github.com:Babylonpartners/Bento.git"
+    :commit: c1e7fc4bbfdc5bc61e1e360d1375166bccab837d
+    :git: "git@github.com:NSMyself/Bento.git"
   BentoKit:
-    :commit: 52d1ababf9defd7d95a857958276501757883535
+    :commit: 0bc7efda31e571cded03afa4853f7966c652a154
     :git: "git@github.com:Babylonpartners/Bento.git"
   StyleSheets:
-    :commit: 52d1ababf9defd7d95a857958276501757883535
+    :commit: 0bc7efda31e571cded03afa4853f7966c652a154
     :git: "git@github.com:Babylonpartners/Bento.git"
 
 SPEC CHECKSUMS:
-  Bento: fa011501ea462d71a73ffd7873fd37776680013b
+  Bento: d290416af2f2be1ff7f5ac292ef08b65a024fbf6
   BentoKit: 1353c4e9c3d24d719c9e28de8962fcfcf9f97ba9
   FlexibleDiff: a35df80dbfa406abcab0483c7bc62ebf7e37f2ee
   ReactiveCocoa: fbd26e9ba60e98417ee47433e59465a98ed9da0f
+  ReactiveFeedback: d26dc761c02d49644d4d79731e29a75faaabdce1
   ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   StyleSheets: f600049ce8a0d9ed60e1b5886c5c20ef61fd9209
 
-PODFILE CHECKSUM: ca5c16573fc14cb174fc284826f2ee74e163d536
+PODFILE CHECKSUM: f9b3cdfc97ce4af9b25aeeb3311968f38b1128db
 
 COCOAPODS: 1.5.3

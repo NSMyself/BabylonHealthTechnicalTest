@@ -1,5 +1,5 @@
 //
-//  FeedRoute.swift
+//  Tab.swift
 //  Babylon iOS Interview Demo
 //
 //  Created by João Pereira on 23/01/2019.
@@ -8,7 +8,4 @@
 
 import Foundation
 
-enum FeedRoute {
-    case feed
-    case showPost
-}
+protocol TabPresentable: class {}

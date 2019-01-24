@@ -33,7 +33,7 @@ extension RootBuilder: RootDelegate {
         return RootViewController(using: RootViewModel(delegate: delegate))
     }
     
-    func build(using tab: TabRoute) -> TabFeature {
+    func build(using tab: TabRoute) -> UIViewController {
         
         switch(tab) {
         case .posts:

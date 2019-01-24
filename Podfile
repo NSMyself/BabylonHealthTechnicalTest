@@ -4,9 +4,11 @@ target 'Babylon iOS Interview Demo' do
   use_frameworks!
 
   # Pods for Babylon iOS Interview Demo
-    pod 'Bento', :git => 'git@github.com:Babylonpartners/Bento.git', :branch => 'master'
-    pod 'BentoKit', :git => 'git@github.com:Babylonpartners/Bento.git', :branch => 'master'
-    pod 'StyleSheets', :git => 'git@github.com:Babylonpartners/Bento.git', :branch => 'master'
+     pod 'ReactiveSwift'
+     pod 'ReactiveFeedback'
+     pod 'Bento', :git => 'git@github.com:NSMyself/Bento.git', :branch => 'master'
+     pod 'BentoKit', :git => 'git@github.com:Babylonpartners/Bento.git', :branch => 'master'
+     pod 'StyleSheets', :git => 'git@github.com:Babylonpartners/Bento.git', :branch => 'master'
 
   target 'Babylon iOS Interview DemoTests' do
     inherit! :search_paths

@@ -8,9 +8,10 @@
 
 import UIKit
 
-final class AboutMeViewController: TabFeature {
+final class AboutMeViewController: UIViewController {
     
     override func viewDidLoad() {
+        self.title = "About Me"
         self.view.backgroundColor = .blue
     }
 }

@@ -6,8 +6,8 @@
 //  Copyright © 2019 NSMyself. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol RootDelegate: class {
-    func build(using tab: TabRoute) -> TabFeature
+    func build(using tab: TabRoute) -> UIViewController
 }
