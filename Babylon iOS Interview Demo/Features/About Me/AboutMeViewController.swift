@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class AboutMeViewController: UIViewController {
+final class AboutMeViewController: TabFeature {
     
     override func viewDidLoad() {
         self.view.backgroundColor = .blue

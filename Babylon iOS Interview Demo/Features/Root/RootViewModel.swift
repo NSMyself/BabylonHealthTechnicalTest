@@ -10,26 +10,32 @@ import UIKit
 
 final class RootViewModel {
     
-    init() {}
+    private let tabs: [Tab] = [
+        Tab(
+            route: .posts,
+            item: TabItem(title: "Bookmarks", image: #imageLiteral(resourceName: "Posts"), selectedImage: #imageLiteral(resourceName: "Posts"))
+        ),
+        Tab(
+            route: .aboutMe,
+            item: TabItem(title: "About me", image: #imageLiteral(resourceName: "About Me"), selectedImage: #imageLiteral(resourceName: "About Me"))
+        )
+    ]
     
-    private let tabs:[TabRoute] = [.posts, .aboutMe]
+    weak var delegate: RootDelegate?
     
-    private func build(_ tab: TabRoute) -> UIViewController {
-        
-        switch(tab) {
-        case .posts:
-            let viewController = PostsViewController()
-            viewController.tabBarItem = UITabBarItem(title: "Bookmarks", image: #imageLiteral(resourceName: "Posts"), selectedImage: #imageLiteral(resourceName: "Posts"))
-            return viewController
-            
-        case .aboutMe:
-            let viewController = AboutMeViewController()
-            viewController.tabBarItem = UITabBarItem(title: "About me", image: #imageLiteral(resourceName: "About Me"), selectedImage: #imageLiteral(resourceName: "About Me"))
-            return viewController
-        }
+    init(delegate: RootDelegate?) {
+        self.delegate = delegate
     }
     
-    lazy var viewControllers:[UIViewController] = {
-        return tabs.map(build)
+    private func build(_ tab: Tab) -> UIViewController? {
+        let vc = delegate?.build(using: tab.route)
+        vc?.tabBarItem = UITabBarItem(with: tab.item)
+        return vc
+    }
+    
+    lazy var viewControllers: [UIViewController] = {
+        return tabs
+            .compactMap(build)
+            .map { UINavigationController(rootViewController:  $0) }
     }()
 }

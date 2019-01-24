@@ -1,5 +1,5 @@
 //
-//  PostsViewController.swift
+//  FeedViewController.swift
 //  Babylon iOS Interview Demo
 //
 //  Created by João Pereira on 22/01/2019.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-final class PostsViewController: UIViewController {
+final class FeedViewController: TabFeature {
     
     override func viewDidLoad() {
-        print("Loaded")
+        self.title = "Feed"
         self.view.backgroundColor = .red
     }
 }

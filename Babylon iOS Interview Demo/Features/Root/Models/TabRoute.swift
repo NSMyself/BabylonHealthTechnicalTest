@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum TabRoute {
+enum TabRoute: Int {
     case posts
     case aboutMe
 }
