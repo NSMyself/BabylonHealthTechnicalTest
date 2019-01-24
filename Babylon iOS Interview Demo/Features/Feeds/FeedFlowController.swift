@@ -27,10 +27,6 @@ class FeedFlowController {
         self.navigationFlow = navigation
         self.builder = builder
     }
-    
-    func observe(_ output: Signal<FeedViewModel.Route, NoError>) {
-        
-    }
 }
 
 extension FeedFlowController {

@@ -38,7 +38,7 @@ final class FeedViewModel {
             .skipRepeats()
             .filterMap { state in
                 switch state {
-                case let .loaded(posts): // TODO: ADD THIS: where posts.count > 0:
+                case let .loaded(posts):
                     return .showFeed(feed: posts)
                 case let .loadingFailed(error):
                     return .showAlert(alert: error)
@@ -71,9 +71,11 @@ extension FeedViewModel {
     
     private static func failedFeedback() -> Feedback<State, FeedViewModel.Event> {
         return Feedback { state -> SignalProducer<Event, NoError> in
-            return .empty
+            guard case let .loaded(posts) = state else { return .empty }
+            return SignalProducer(value: Event.didLoad(posts))
         }
     }
+    
     
     private static func actionsFeedback(actions: Signal<Action, NoError>) -> Feedback<State, FeedViewModel.Event> {
         return Feedback { scheduler, state -> Signal<Event, NoError> in
