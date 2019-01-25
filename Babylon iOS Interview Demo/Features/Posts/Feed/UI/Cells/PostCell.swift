@@ -57,8 +57,7 @@ final class PostCell: UIView {
     }
     
     private func setupTapGesture() {
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(gestureRecognizer:)))
-        addGestureRecognizer(recognizer)
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapped(gestureRecognizer:))))
     }
     
     @objc private func tapped(gestureRecognizer: UITapGestureRecognizer) {

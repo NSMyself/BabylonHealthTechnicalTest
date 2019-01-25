@@ -14,7 +14,7 @@ extension FeedViewModel {
         case loading
         case loaded(Feed)
         case loadingFailed(FeedViewModel.Store.Error)
-        case showing(post: Post)
+        case showing(postId: Int)
     }
     
     enum Event {
@@ -25,14 +25,14 @@ extension FeedViewModel {
     
     enum Action {
         case retry
-        case didSelect(post: Post)
+        case didSelect(postId: Int)
     }
     
     enum Route {
         case showLoading()
         case showFeed(feed: Feed)
         case showAlert(alert: FeedViewModel.Store.Error)
-        case showPost(_ post: Post)
+        case showPost(_ post: Int)
     }
 }
 

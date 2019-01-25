@@ -7,7 +7,9 @@
 //
 
 import Bento
+import BentoKit
 import ReactiveSwift
+import StyleSheets
 
 typealias Context = FeedViewModel.Renderer.Context
 
@@ -15,33 +17,25 @@ extension FeedViewModel {
     
     struct Renderer {
         
-        enum SectionId {
-            case noId
-        }
+        init() {}
         
-        enum RowId {
-            case post(Post)
-            case noData
-            case loading
-        }
-        
-        enum Context {
-            case feed(Feed)
-            case placeholder(Placeholder)
-            
-            enum Placeholder {
-                case loading
-                case noData
-            }
-        }
+        let (signal, observer) = Signal<Box<SectionId, RowId>, NoError>.pipe()
 
-        func render(feed: Feed) -> Box<SectionId, RowId> {
-            return Box.empty
+        func render(feed: Feed)  {
+            
+            let tappedClosure:((Int) -> Void) = { id in
+                //TODO: FIX THIS
+                print("id == \(id)")
+            }
+            
+            let box = Box.empty
                 |-+ Section(id: SectionId.noId)
-                |---* self.makeRows(from: feed)
+                |---* self.makeRows(from: feed, using: tappedClosure)
+            
+            observer.send(value: box)
         }
         
-        func makeRows(from posts: Feed) -> [Node<RowId>] {
+        func makeRows(from posts: Feed, using didTapClosure: ((Int)-> Void)? = nil) -> [Node<RowId>] {
             
             guard posts.count > 0 else {
                 return [RowId.noData <> PlaceholderComponent()]
@@ -50,30 +44,58 @@ extension FeedViewModel {
             return posts.map { post -> Node<RowId> in
                 return RowId.post(post) <> PostComponent(id: post.id,
                                                          title: post.title,
-                                                         description: post.body
+                                                         body: post.body,
+                                                         didTap: didTapClosure
                 )
             }
         }
         
-        func render(placeholder: Context.Placeholder) -> Box<SectionId, RowId> {
+        func render(placeholder: Context.Placeholder) {
             switch(placeholder) {
             case .loading:
-                return renderLoading()
+                renderLoading()
             case .noData:
-                return renderNoData()
+                renderNoData()
             }
         }
         
-        private func renderLoading() -> Box<SectionId, RowId> {
-            return Box<SectionId, RowId>.empty
+        private func renderLoading() {
+            let box = Box<SectionId, RowId>.empty
                 |-+ Section(id: SectionId.noId)
                 |---+ Node(id: RowId.noData, component: PlaceholderComponent())
+            
+            observer.send(value: box)
         }
         
-        private func renderNoData() -> Box<SectionId, RowId> {
-            return Box<SectionId, RowId>.empty
+        private func renderNoData() {
+            let box = Box<SectionId, RowId>.empty
                 |-+ Section(id: SectionId.noId)
                 |---+ Node(id: RowId.noData, component: PlaceholderComponent())
+            
+            observer.send(value: box)
+        }
+    }
+}
+
+extension FeedViewModel.Renderer {
+    
+    enum SectionId {
+        case noId
+    }
+    
+    enum RowId {
+        case post(Post)
+        case noData
+        case loading
+    }
+    
+    enum Context {
+        case feed(Feed)
+        case placeholder(Placeholder)
+        
+        enum Placeholder {
+            case loading
+            case noData
         }
     }
 }

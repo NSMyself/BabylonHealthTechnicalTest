@@ -28,13 +28,13 @@ extension FeedFlowController {
     func handle(_ route: FeedViewModel.Route) {
         switch route {
         case .showLoading():
-            print("nay")
             delegate?.show(context: .placeholder(.loading))
         case let .showFeed(posts):
-            print("hey")
             delegate?.show(context: .feed(posts))
+            //navigationFlow.present(builder.makeReaderViewController(post: 3), animated: true)
         case let .showPost(post):
-            print("SHOW POST \(post.body)") // trocoar por builder
+            navigationFlow.present(builder.makeReaderViewController(post: post), animated: true)
+            
         case let .showAlert(error):
             //renderer?.alert(error) // trocar por modal
             break

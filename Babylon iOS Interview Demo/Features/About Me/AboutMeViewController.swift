@@ -11,7 +11,7 @@ import UIKit
 final class AboutMeViewController: UIViewController {
     
     override func viewDidLoad() {
-        self.title = "About Me"
+        self.title = "About"
         self.view.backgroundColor = .blue
     }
 }

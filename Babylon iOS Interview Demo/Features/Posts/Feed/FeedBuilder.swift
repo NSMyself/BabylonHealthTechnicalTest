@@ -36,7 +36,8 @@ struct FeedBuilder {
 }
 
 extension FeedBuilder: FeedChildBuilders {
-    func makeDetailedPost(modal: Flow, navigation: Flow) -> UIViewController {
-        return UIViewController()
+    func makeReaderViewController(post postId: Int) -> UIViewController {
+        guard let post = FeedViewModel.Store().fetch(post: postId) else { fatalError("💥 Invalid post ID!") }
+        return ShowPostViewController(with: post)
     }
 }

@@ -18,14 +18,17 @@ final class FeedViewModel {
     private let state: Property<State>
     let routes: Signal<Route, NoError>
     
-    fileprivate let renderer = FeedViewModel.Renderer()
+    fileprivate let renderer:FeedViewModel.Renderer
     private let (actions, observer) = Signal<Action, NoError>.pipe()
     
-    let box: MutableProperty<Box<Renderer.SectionId, Renderer.RowId>> = MutableProperty(.empty)
+    let box: Property<Box<Renderer.SectionId, Renderer.RowId>>
     
     init(with store: FeedViewModel.Store) {
         
         self.store = store
+        self.renderer = FeedViewModel.Renderer()
+        
+        box = Property(initial: .empty, then: renderer.signal)
         
         state = Property(
             initial: .loading,
@@ -56,10 +59,6 @@ final class FeedViewModel {
     
     func send(action: FeedViewModel.Action) {
         observer.send(value: action)
-    }
-    
-    func reload() {
-        //reloadObserver.send(value: ()) // NOT YET IMPLEMENTED
     }
 }
 
@@ -96,11 +95,9 @@ extension FeedViewModel: FeedRenderDelegate {
     func show(context: Context) {
         switch(context) {
         case let .placeholder(msg):
-            box.value = renderer.render(placeholder: msg)
+            renderer.render(placeholder: msg)
         case let .feed(posts):
-            box.value = renderer.render(feed: posts)
-        default:
-            break
+            renderer.render(feed: posts)
         }
     }
 }

@@ -17,7 +17,7 @@ final class RootViewModel {
         ),
         Tab(
             route: .aboutMe,
-            item: TabItem(title: "About me", image: #imageLiteral(resourceName: "About Me"), selectedImage: #imageLiteral(resourceName: "About Me"))
+            item: TabItem(title: "About", image: #imageLiteral(resourceName: "About Me"), selectedImage: #imageLiteral(resourceName: "About Me"))
         )
     ]
     

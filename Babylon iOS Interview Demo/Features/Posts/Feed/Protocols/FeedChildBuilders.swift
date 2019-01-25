@@ -9,8 +9,5 @@
 import UIKit
 
 protocol FeedChildBuilders {
-    func makeDetailedPost(
-        modal: Flow,
-        navigation: Flow
-        ) -> UIViewController
+    func makeReaderViewController(post: Int) -> UIViewController
 }

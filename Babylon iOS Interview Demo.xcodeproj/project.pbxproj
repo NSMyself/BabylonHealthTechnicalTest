@@ -20,6 +20,7 @@
 		5951A98421FB6823009D0484 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951A98321FB6823009D0484 /* PostCell.swift */; };
 		5951A98721FB6890009D0484 /* PostComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951A98621FB6890009D0484 /* PostComponent.swift */; };
 		5951A98921FB696B009D0484 /* PlaceholderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951A98821FB696B009D0484 /* PlaceholderComponent.swift */; };
+		5951A99021FB71CB009D0484 /* ShowPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951A98F21FB71CB009D0484 /* ShowPostViewController.swift */; };
 		59A5009021F7762700DF68E6 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5008F21F7762700DF68E6 /* RootBuilder.swift */; };
 		59A5009221F77A7900DF68E6 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5009121F77A7900DF68E6 /* RootViewController.swift */; };
 		59A5009421F77A9700DF68E6 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5009321F77A9700DF68E6 /* RootViewModel.swift */; };
@@ -75,6 +76,7 @@
 		5951A98321FB6823009D0484 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		5951A98621FB6890009D0484 /* PostComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComponent.swift; sourceTree = "<group>"; };
 		5951A98821FB696B009D0484 /* PlaceholderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderComponent.swift; sourceTree = "<group>"; };
+		5951A98F21FB71CB009D0484 /* ShowPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostViewController.swift; sourceTree = "<group>"; };
 		59A5008F21F7762700DF68E6 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
 		59A5009121F77A7900DF68E6 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		59A5009321F77A9700DF68E6 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
@@ -211,8 +213,7 @@
 			children = (
 				59ADB35621F9F52C00C72527 /* Models */,
 				5951A96E21FB3520009D0484 /* Protocols */,
-				5951A98521FB6879009D0484 /* Components */,
-				5951A97621FB3819009D0484 /* Cells */,
+				5951A98A21FB6D0A009D0484 /* UI */,
 				59F195D421F8E60A009E744A /* FeedBuilder.swift */,
 				59F195D221F8E5F1009E744A /* FeedFlowController.swift */,
 				59A5009821F7855D00DF68E6 /* FeedViewController.swift */,
@@ -241,6 +242,22 @@
 				5951A98821FB696B009D0484 /* PlaceholderComponent.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		5951A98A21FB6D0A009D0484 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5951A98521FB6879009D0484 /* Components */,
+				5951A97621FB3819009D0484 /* Cells */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		5951A98B21FB6EB0009D0484 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		59A5008E21F775DE00DF68E6 /* Root Builder */ = {
@@ -300,6 +317,7 @@
 				59F1547D21F5FD6C0062FD19 /* Navigation */,
 				59A5009F21F7E9DC00DF68E6 /* Protocols */,
 				59F195C721F88B6B009E744A /* Extensions */,
+				5951A98B21FB6EB0009D0484 /* Networking */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -333,6 +351,7 @@
 		59F195D121F8E500009E744A /* Show Post */ = {
 			isa = PBXGroup;
 			children = (
+				5951A98F21FB71CB009D0484 /* ShowPostViewController.swift */,
 			);
 			path = "Show Post";
 			sourceTree = "<group>";
@@ -580,6 +599,7 @@
 				5951A98021FB5291009D0484 /* FeedViewModel+Renderer.swift in Sources */,
 				59F195CF21F8D17F009E744A /* Sequence+keyPathToGetter.swift in Sources */,
 				59A5009921F7855D00DF68E6 /* FeedViewController.swift in Sources */,
+				5951A99021FB71CB009D0484 /* ShowPostViewController.swift in Sources */,
 				591B281321F61AC300EACE47 /* UINavigationController+ModalFlow.swift in Sources */,
 				59F195CD21F8C9F7009E744A /* TabPresentable.swift in Sources */,
 				59ADB36121FA7C6100C72527 /* FeedViewModel+Reduce.swift in Sources */,
