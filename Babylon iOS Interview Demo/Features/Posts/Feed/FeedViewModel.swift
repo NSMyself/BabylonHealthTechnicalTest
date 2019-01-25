@@ -7,19 +7,23 @@
 //
 
 import Foundation
+import Bento
 import ReactiveSwift
 import ReactiveFeedback
 import Result
 
 final class FeedViewModel {
 
-    let store: FeedStore
-    let state: Property<State>
+    private let store: FeedViewModel.Store
+    private let state: Property<State>
     let routes: Signal<Route, NoError>
     
+    fileprivate let renderer = FeedViewModel.Renderer()
     private let (actions, observer) = Signal<Action, NoError>.pipe()
     
-    init(with store: FeedStore) {
+    let box: MutableProperty<Box<Renderer.SectionId, Renderer.RowId>> = MutableProperty(.empty)
+    
+    init(with store: FeedViewModel.Store) {
         
         self.store = store
         
@@ -29,7 +33,7 @@ final class FeedViewModel {
             feedbacks: [
                 FeedViewModel.loadingFeedback(using: store),
                 FeedViewModel.actionsFeedback(actions: actions),
-                FeedViewModel.failedFeedback(),
+                FeedViewModel.failedFeedback()
             ]
         )
         
@@ -46,18 +50,22 @@ final class FeedViewModel {
                     return .showPost(post)
                 default:
                     return nil
+                }
             }
-        }
     }
     
     func send(action: FeedViewModel.Action) {
         observer.send(value: action)
     }
+    
+    func reload() {
+        //reloadObserver.send(value: ()) // NOT YET IMPLEMENTED
+    }
 }
 
 extension FeedViewModel {
     
-    private static func loadingFeedback(using store: FeedStore)  -> Feedback<State, FeedViewModel.Event> {
+    private static func loadingFeedback(using store: FeedViewModel.Store)  -> Feedback<State, FeedViewModel.Event> {
         return Feedback { state -> SignalProducer<Event, NoError> in
             guard case .loading = state else { return .empty }
             
@@ -76,10 +84,23 @@ extension FeedViewModel {
         }
     }
     
-    
     private static func actionsFeedback(actions: Signal<Action, NoError>) -> Feedback<State, FeedViewModel.Event> {
         return Feedback { scheduler, state -> Signal<Event, NoError> in
-            return actions.map(Event.ui).observe(on: scheduler)
+            return actions.map(Event.ui)
+        }
+    }
+}
+
+extension FeedViewModel: FeedRenderDelegate {
+    
+    func show(context: Context) {
+        switch(context) {
+        case let .placeholder(msg):
+            box.value = renderer.render(placeholder: msg)
+        case let .feed(posts):
+            box.value = renderer.render(feed: posts)
+        default:
+            break
         }
     }
 }

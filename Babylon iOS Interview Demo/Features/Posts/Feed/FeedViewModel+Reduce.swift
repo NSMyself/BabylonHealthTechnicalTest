@@ -19,7 +19,6 @@ extension FeedViewModel {
         case let .loadingFailed(error):
             return reduceLoadingFailed(state: state, event: event, error: error)
         case let .showing(post):
-            print("fdx")
             return reduceShow(state: state, event: event, post: post)
         }
     }
@@ -40,14 +39,13 @@ extension FeedViewModel {
     static func reduceLoaded(state: State, event: Event) -> State {
         switch event {
         case let .ui(.didSelect(post)):
-            print("AAAA!")
             return .showing(post: post)
         default:
             return state
         }
     }
     
-    static func reduceLoadingFailed(state: State, event: Event, error: FeedStore.Error) -> State { // NOT YET IMPLEMENTED
+    static func reduceLoadingFailed(state: State, event: Event, error: FeedViewModel.Store.Error) -> State { // NOT YET IMPLEMENTED
         switch event {
         case .ui(.retry):
             return .loading
@@ -59,7 +57,6 @@ extension FeedViewModel {
     static func reduceShow(state: State, event: Event, post: Post) -> State {
         switch event {
         case .ui(.didSelect(post)):
-            print("oi!!")
             return .showing(post: post)
         default:
             return state
