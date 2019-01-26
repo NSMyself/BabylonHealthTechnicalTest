@@ -33,10 +33,11 @@ extension FeedFlowController {
             delegate?.show(context: .feed(posts))
         case let .showPost(post):
             navigationFlow.present(builder.makeReaderViewController(post: post), animated: true)
-            
         case let .showAlert(error):
             //renderer?.alert(error) // trocar por modal
             break
+        case .closePost:
+            delegate?.show(context: .placeholder(.loading))
         }
     }
 }

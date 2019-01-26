@@ -11,9 +11,11 @@ import UIKit
 class ReaderViewController: UIViewController {
     
     let post: Post
+    private weak var delegate: ReaderDelegate?
     
-    init(using post: Post) {
+    init(using post: Post, delegate: ReaderDelegate? = nil) {
         self.post = post
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -24,5 +26,11 @@ class ReaderViewController: UIViewController {
     override func viewDidLoad() {
         view.backgroundColor = .yellow
         super.viewDidLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard isMovingFromParent else { return }
+        delegate?.dismissing()
     }
 }

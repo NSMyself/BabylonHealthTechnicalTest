@@ -17,7 +17,7 @@ final class FeedViewModel {
     fileprivate let renderer:FeedViewModel.Renderer
     
     private let store: FeedViewModel.Store
-    private let state: Property<State>
+    let state: Property<State>
     
     let routes: Signal<Route, NoError>
     let box: Property<Box<Renderer.SectionId, Renderer.RowId>>
@@ -50,6 +50,8 @@ final class FeedViewModel {
                     return .showAlert(alert: error)
                 case let .showing(post):
                     return .showPost(post)
+                case .closingPost:
+                    return .closePost
                 default:
                     return nil
                 }
@@ -94,5 +96,18 @@ extension FeedViewModel: FeedRenderDelegate {
         case let .feed(posts):
             renderer.render(feed: posts)
         }
+    }
+    
+    var isReadingPost: Bool {
+        switch state.value {
+        case .showing(postId: _):
+            return true
+        default:
+            return false
+        }
+    }
+    
+    func didClosePost() {
+        renderer.tapObserver.send(value: .didClosePost)
     }
 }

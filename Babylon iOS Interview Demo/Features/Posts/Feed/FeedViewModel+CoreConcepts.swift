@@ -6,7 +6,7 @@
 //  Copyright © 2019 NSMyself. All rights reserved.
 //
 
-import Foundation
+import ReactiveSwift
 
 extension FeedViewModel {
     
@@ -35,5 +35,6 @@ extension FeedViewModel {
         case showFeed(feed: Feed)
         case showAlert(alert: StoreError)
         case showPost(_ post: Int)
+        case closePost
     }
 }

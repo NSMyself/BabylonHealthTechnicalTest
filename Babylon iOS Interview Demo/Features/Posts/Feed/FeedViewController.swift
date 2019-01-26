@@ -45,6 +45,7 @@ final class FeedViewController: UIViewController {
         view.backgroundColor = .white
         setupUI()
         bind()
+        observePostDismissal()
     }
     
     private func setupUI() {
@@ -66,6 +67,19 @@ final class FeedViewController: UIViewController {
             .startWithValues { [tableView] in
                 tableView.render($0, animated: true)
             }
+    }
+    
+    // This method determines if a user has finished reading a post
+    // If so, it'll fire a didClosePost action
+    // I'm fully aware this is far from ideal :/ Would like to hear of an alternative (other than delegation or notifications)
+    private func observePostDismissal() {
+        reactive
+            .trigger(for: #selector(self.viewWillAppear(_:)))
+            .observeValues { [viewModel] in
+                if (viewModel.isReadingPost) {
+                    viewModel.didClosePost()
+                }
+        }
     }
 }
 

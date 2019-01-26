@@ -31,7 +31,6 @@ struct FeedBuilder {
             .observe(on: UIScheduler())
             .observeValues(flowController.handle)
             
-        
         return navController
     }
 }
