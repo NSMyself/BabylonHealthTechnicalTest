@@ -19,7 +19,7 @@ final class FeedViewModel {
     let routes: Signal<Route, NoError>
     
     fileprivate let renderer:FeedViewModel.Renderer
-    private let (actions, observer) = Signal<Action, NoError>.pipe()
+    private let (actions, actionsObserver) = Signal<Action, NoError>.pipe()
     
     let box: Property<Box<Renderer.SectionId, Renderer.RowId>>
     
@@ -34,8 +34,8 @@ final class FeedViewModel {
             initial: .loading,
             reduce: FeedViewModel.reduce,
             feedbacks: [
-                FeedViewModel.loadingFeedback(using: store),
                 FeedViewModel.actionsFeedback(actions: actions),
+                FeedViewModel.loadingFeedback(using: store),
                 FeedViewModel.failedFeedback()
             ]
         )
@@ -45,7 +45,7 @@ final class FeedViewModel {
             .skipRepeats()
             .filterMap { state in
                 switch state {
-                case let .loaded(posts):
+                case let .loaded(posts, _):
                     return .showFeed(feed: posts)
                 case let .loadingFailed(error):
                     return .showAlert(alert: error)
@@ -63,7 +63,7 @@ final class FeedViewModel {
     }
     
     func send(action: FeedViewModel.Action) {
-        observer.send(value: action)
+        actionsObserver.send(value: action)
     }
 }
 
@@ -84,12 +84,13 @@ extension FeedViewModel {
     private static func failedFeedback() -> Feedback<State, FeedViewModel.Event> {
         return Feedback { state -> SignalProducer<Event, NoError> in
             guard case let .loaded(posts) = state else { return .empty }
-            return SignalProducer(value: Event.didLoad(posts))
+            //return SignalProducer(value: Event.didLoad(posts))
+            return .empty
         }
     }
     
     private static func actionsFeedback(actions: Signal<Action, NoError>) -> Feedback<State, FeedViewModel.Event> {
-        return Feedback { scheduler, state -> Signal<Event, NoError> in
+        return Feedback { _ in
             return actions.map(Event.ui)
         }
     }

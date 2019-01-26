@@ -8,17 +8,20 @@
 
 import ReactiveSwift
 
+typealias StoreError = FeedViewModel.Store.Error
+
 extension FeedViewModel {
+
     final class Store {
         
         enum Error: Swift.Error {
             case networkError
         }
         
-        func fetch() -> SignalProducer<Feed, FeedViewModel.Store.Error> {
+        func fetch() -> SignalProducer<Feed, StoreError> {
             
             // mock data, for now
-            let sp = SignalProducer<Feed, FeedViewModel.Store.Error> { (observer, lifetime) in
+            let sp = SignalProducer<Feed, StoreError> { (observer, lifetime) in
                 observer.send(value: [Post(id: 3, userId: 3, title: "fdx", body: "ewijoi wejfoijfewoijfoiwef")])
                 observer.sendCompleted()
             }

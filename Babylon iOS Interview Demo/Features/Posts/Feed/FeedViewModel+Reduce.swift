@@ -28,7 +28,7 @@ extension FeedViewModel {
         case let .didFail(error):
             return .loadingFailed(error)
         case let .didLoad(posts):
-            return .loaded(posts)
+            return .loaded(posts, nil)
         case let .ui(.didSelect(postId)):
             return .showing(postId: postId)
         default:
@@ -40,12 +40,14 @@ extension FeedViewModel {
         switch event {
         case let .ui(.didSelect(post)):
             return .showing(postId: post)
+        case let .didLoad(feed):
+            return .loaded(feed, nil)
         default:
             return state
         }
     }
     
-    static func reduceLoadingFailed(state: State, event: Event, error: FeedViewModel.Store.Error) -> State { // NOT YET IMPLEMENTED
+    static func reduceLoadingFailed(state: State, event: Event, error: StoreError) -> State { // NOT YET IMPLEMENTED
         switch event {
         case .ui(.retry):
             return .loading
