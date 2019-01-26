@@ -8,22 +8,24 @@
 
 import Foundation
 
+
+
 extension FeedViewModel {
     
-    enum State {
+    enum State: Equatable {
         case loading
-        case loaded(Feed)
-        case loadingFailed(FeedViewModel.Store.Error)
+        case loaded(Feed, StoreError?)
+        case loadingFailed(StoreError)
         case showing(postId: Int)
     }
     
-    enum Event {
+    enum Event: Equatable {
         case didLoad(Feed)
-        case didFail(FeedViewModel.Store.Error)
+        case didFail(StoreError)
         case ui(Action)
     }
     
-    enum Action {
+    enum Action: Equatable {
         case retry
         case didSelect(postId: Int)
     }
@@ -31,24 +33,7 @@ extension FeedViewModel {
     enum Route {
         case showLoading()
         case showFeed(feed: Feed)
-        case showAlert(alert: FeedViewModel.Store.Error)
+        case showAlert(alert: StoreError)
         case showPost(_ post: Int)
-    }
-}
-
-extension FeedViewModel.State: Equatable {
-    static func == (lhs: FeedViewModel.State, rhs: FeedViewModel.State) -> Bool {
-        switch(lhs, rhs) {
-        case (.loading, .loading):
-            return true
-        case (.loaded, .loaded):
-            return true
-        case (.loadingFailed, .loadingFailed):
-            return true
-        case let (.showing(post1), .showing(post2)):
-            return post1 == post2
-        default:
-            return false
-        }
     }
 }
