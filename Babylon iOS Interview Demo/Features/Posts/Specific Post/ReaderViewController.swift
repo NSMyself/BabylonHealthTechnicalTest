@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ShowPostViewController: UIViewController {
+class ReaderViewController: UIViewController {
     
     let post: Post
     
-    init(with post: Post) {
+    init(using post: Post) {
         self.post = post
         super.init(nibName: nil, bundle: nil)
     }

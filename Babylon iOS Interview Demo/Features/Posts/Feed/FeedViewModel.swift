@@ -14,13 +14,12 @@ import Result
 
 final class FeedViewModel {
 
+    fileprivate let renderer:FeedViewModel.Renderer
+    
     private let store: FeedViewModel.Store
     private let state: Property<State>
+    
     let routes: Signal<Route, NoError>
-    
-    fileprivate let renderer:FeedViewModel.Renderer
-    private let (actions, actionsObserver) = Signal<Action, NoError>.pipe()
-    
     let box: Property<Box<Renderer.SectionId, Renderer.RowId>>
     
     init(with store: FeedViewModel.Store) {
@@ -34,7 +33,7 @@ final class FeedViewModel {
             initial: .loading,
             reduce: FeedViewModel.reduce,
             feedbacks: [
-                FeedViewModel.actionsFeedback(actions: actions),
+                FeedViewModel.actionsFeedback(actions: renderer.tapSignal),
                 FeedViewModel.loadingFeedback(using: store),
                 FeedViewModel.failedFeedback()
             ]
@@ -55,15 +54,6 @@ final class FeedViewModel {
                     return nil
                 }
             }
-        
-        renderer
-            .tapSignal
-            .observe(on: UIScheduler())
-            .observeValues(send)
-    }
-    
-    func send(action: FeedViewModel.Action) {
-        actionsObserver.send(value: action)
     }
 }
 
@@ -83,9 +73,8 @@ extension FeedViewModel {
     
     private static func failedFeedback() -> Feedback<State, FeedViewModel.Event> {
         return Feedback { state -> SignalProducer<Event, NoError> in
-            guard case let .loaded(posts) = state else { return .empty }
-            //return SignalProducer(value: Event.didLoad(posts))
-            return .empty
+            guard case let .loaded(posts, _?) = state else { return .empty }
+            return SignalProducer(value: Event.didLoad(posts))
         }
     }
     

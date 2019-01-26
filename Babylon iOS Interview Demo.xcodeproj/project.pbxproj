@@ -20,7 +20,7 @@
 		5951A98421FB6823009D0484 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951A98321FB6823009D0484 /* PostCell.swift */; };
 		5951A98721FB6890009D0484 /* PostComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951A98621FB6890009D0484 /* PostComponent.swift */; };
 		5951A98921FB696B009D0484 /* PlaceholderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951A98821FB696B009D0484 /* PlaceholderComponent.swift */; };
-		5951A99021FB71CB009D0484 /* ShowPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951A98F21FB71CB009D0484 /* ShowPostViewController.swift */; };
+		5951A99021FB71CB009D0484 /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951A98F21FB71CB009D0484 /* ReaderViewController.swift */; };
 		5951A99321FBD547009D0484 /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951A99221FBD547009D0484 /* Pipe.swift */; };
 		5951A99521FBD58E009D0484 /* Precedence Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951A99421FBD58E009D0484 /* Precedence Groups.swift */; };
 		5951A99721FBD6D9009D0484 /* Diamond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951A99621FBD6D9009D0484 /* Diamond.swift */; };
@@ -81,7 +81,7 @@
 		5951A98321FB6823009D0484 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		5951A98621FB6890009D0484 /* PostComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComponent.swift; sourceTree = "<group>"; };
 		5951A98821FB696B009D0484 /* PlaceholderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderComponent.swift; sourceTree = "<group>"; };
-		5951A98F21FB71CB009D0484 /* ShowPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostViewController.swift; sourceTree = "<group>"; };
+		5951A98F21FB71CB009D0484 /* ReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
 		5951A99221FBD547009D0484 /* Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipe.swift; sourceTree = "<group>"; };
 		5951A99421FBD58E009D0484 /* Precedence Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Precedence Groups.swift"; sourceTree = "<group>"; };
 		5951A99621FBD6D9009D0484 /* Diamond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diamond.swift; sourceTree = "<group>"; };
@@ -379,12 +379,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		59F195D121F8E500009E744A /* Show Post */ = {
+		59F195D121F8E500009E744A /* Specific Post */ = {
 			isa = PBXGroup;
 			children = (
-				5951A98F21FB71CB009D0484 /* ShowPostViewController.swift */,
+				5951A98F21FB71CB009D0484 /* ReaderViewController.swift */,
 			);
-			path = "Show Post";
+			path = "Specific Post";
 			sourceTree = "<group>";
 		};
 		59F4CDC221F1EE53008EB438 /* Resources */ = {
@@ -417,8 +417,8 @@
 		59F4CDC621F1EF18008EB438 /* Posts */ = {
 			isa = PBXGroup;
 			children = (
-				59F195D121F8E500009E744A /* Show Post */,
 				5951A97521FB37D0009D0484 /* Feed */,
+				59F195D121F8E500009E744A /* Specific Post */,
 			);
 			path = Posts;
 			sourceTree = "<group>";
@@ -634,7 +634,7 @@
 				5951A98021FB5291009D0484 /* FeedViewModel+Renderer.swift in Sources */,
 				59F195CF21F8D17F009E744A /* Sequence+keyPathToGetter.swift in Sources */,
 				59A5009921F7855D00DF68E6 /* FeedViewController.swift in Sources */,
-				5951A99021FB71CB009D0484 /* ShowPostViewController.swift in Sources */,
+				5951A99021FB71CB009D0484 /* ReaderViewController.swift in Sources */,
 				591B281321F61AC300EACE47 /* UINavigationController+Flow.swift in Sources */,
 				5951A99321FBD547009D0484 /* Pipe.swift in Sources */,
 				59F195CD21F8C9F7009E744A /* TabPresentable.swift in Sources */,

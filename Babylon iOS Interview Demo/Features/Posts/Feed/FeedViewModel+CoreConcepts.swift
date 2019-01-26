@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 extension FeedViewModel {
     
     enum State: Equatable {
@@ -17,6 +15,7 @@ extension FeedViewModel {
         case loaded(Feed, StoreError?)
         case loadingFailed(StoreError)
         case showing(postId: Int)
+        case closingPost
     }
     
     enum Event: Equatable {
@@ -26,8 +25,9 @@ extension FeedViewModel {
     }
     
     enum Action: Equatable {
-        case retry
         case didSelect(postId: Int)
+        case didClosePost
+        case retry
     }
     
     enum Route {

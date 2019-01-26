@@ -20,6 +20,8 @@ extension FeedViewModel {
             return reduceLoadingFailed(state: state, event: event, error: error)
         case let .showing(post):
             return reduceShow(state: state, event: event, post: post)
+        case .closingPost:
+            return state
         }
     }
     
@@ -60,6 +62,8 @@ extension FeedViewModel {
         switch event {
         case .ui(.didSelect(post)):
             return .showing(postId: post)
+        case .ui(.didClosePost):
+            return .loading
         default:
             return state
         }
