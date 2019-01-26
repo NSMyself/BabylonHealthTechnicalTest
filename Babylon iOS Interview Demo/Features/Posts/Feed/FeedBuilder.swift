@@ -13,16 +13,16 @@ struct FeedBuilder {
     
     init() {}
     
-    func make() -> UIViewController {
+    func make() -> UINavigationController {
         
         let store = FeedViewModel.Store()
         let viewModel = FeedViewModel(with: store)
         let viewController = FeedViewController(with: viewModel)
-        let navigationController = UINavigationController(rootViewController: viewController)
+        let navController = UINavigationController(rootViewController: viewController)
         
         let flowController = FeedFlowController(
             modal: viewController.modalFlow,
-            navigation: navigationController.navigationFlow,
+            navigation: navController.navigationFlow,
             builder: self,
             delegate: viewModel
         )
@@ -30,8 +30,9 @@ struct FeedBuilder {
         viewModel.routes
             .observe(on: UIScheduler())
             .observeValues(flowController.handle)
+            
         
-        return viewController
+        return navController
     }
 }
 

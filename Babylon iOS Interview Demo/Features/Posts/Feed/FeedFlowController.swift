@@ -31,7 +31,6 @@ extension FeedFlowController {
             delegate?.show(context: .placeholder(.loading))
         case let .showFeed(posts):
             delegate?.show(context: .feed(posts))
-            //navigationFlow.present(builder.makeReaderViewController(post: 3), animated: true)
         case let .showPost(post):
             navigationFlow.present(builder.makeReaderViewController(post: post), animated: true)
             

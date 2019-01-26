@@ -10,42 +10,43 @@ import Bento
 import BentoKit
 import ReactiveSwift
 import StyleSheets
+import UIKit
 
 typealias Context = FeedViewModel.Renderer.Context
 
 extension FeedViewModel {
     
-    struct Renderer {
+    class Renderer {
         
         init() {}
         
         let (signal, observer) = Signal<Box<SectionId, RowId>, NoError>.pipe()
+        let (tapSignal, tapObserver) = Signal<Action, NoError>.pipe()
 
         func render(feed: Feed)  {
             
-            let tappedClosure:((Int) -> Void) = { id in
-                //TODO: FIX THIS
-                print("id == \(id)")
-            }
-            
             let box = Box.empty
                 |-+ Section(id: SectionId.noId)
-                |---* self.makeRows(from: feed, using: tappedClosure)
+                |---* self.makeRows(from: feed)
             
             observer.send(value: box)
         }
         
-        func makeRows(from posts: Feed, using didTapClosure: ((Int)-> Void)? = nil) -> [Node<RowId>] {
+        func makeRows(from posts: Feed) -> [Node<RowId>] {
             
             guard posts.count > 0 else {
                 return [RowId.noData <> PlaceholderComponent()]
             }
             
             return posts.map { post -> Node<RowId> in
-                return RowId.post(post) <> PostComponent(id: post.id,
-                                                         title: post.title,
-                                                         body: post.body,
-                                                         didTap: didTapClosure
+                return RowId.post(post) <> Component.Description(
+                    text: post.title,
+                    accessoryIcon: nil,
+                    didTap: { [weak self] in
+                        self?.tapObserver.send(value: .didSelect(postId: post.id))
+                    },
+                    styleSheet: Component.Description.StyleSheet()
+                        .compose(\.backgroundColor, UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0))
                 )
             }
         }

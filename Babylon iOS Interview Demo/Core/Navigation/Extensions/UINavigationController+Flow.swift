@@ -1,5 +1,5 @@
 //
-//  UINavigationController+ModalFlow.swift
+//  UINavigationController+Flow.swift
 //  Babylon iOS Interview Demo
 //
 //  Created by João Pereira on 21/01/2019.

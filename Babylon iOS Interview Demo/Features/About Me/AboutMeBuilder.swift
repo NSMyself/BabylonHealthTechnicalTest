@@ -6,13 +6,14 @@
 //  Copyright © 2019 NSMyself. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct AboutMeBuilder: Buildable {
     
-    typealias T = AboutMeViewController
+    typealias T = UINavigationController
     
     func make() -> T {
-        return T()
+        let vc = AboutMeViewController()
+        return UINavigationController(rootViewController: vc)
     }
 }

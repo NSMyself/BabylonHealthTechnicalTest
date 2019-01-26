@@ -55,6 +55,11 @@ final class FeedViewModel {
                     return nil
                 }
             }
+        
+        renderer
+            .tapSignal
+            .observe(on: UIScheduler())
+            .observeValues(send)
     }
     
     func send(action: FeedViewModel.Action) {

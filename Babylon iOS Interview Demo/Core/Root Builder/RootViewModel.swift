@@ -36,6 +36,5 @@ final class RootViewModel {
     lazy var viewControllers: [UIViewController] = {
         return tabs
             .compactMap(build)
-            .map { UINavigationController(rootViewController:  $0) }
     }()
 }
