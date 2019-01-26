@@ -16,10 +16,10 @@ public struct Endpoint {
         case comments
     }
     
-    let environment: Environment
+    let environment: APIEnvironment
     let resource: Resource
     
-    init(resource: Resource, in environment: Environment) {
+    init(resource: Resource, in environment: APIEnvironment = .production) {
         self.environment = environment
         self.resource = resource
     }

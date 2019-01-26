@@ -17,8 +17,28 @@ public struct APIRequest: Requestable {
     }
     
     public let endpoint: Endpoint
-    public let method: HttpMethod
-    public let kind: Request.Kind
+    public let method: HttpMethod<Data>
+    public let contentType: String
+    public let kind: APIRequest.Kind
     public let headers: [String: String]
+    public let timeoutInterval: TimeInterval
+    public let cachePolicy: URLRequest.CachePolicy
+    
+    init(endpoint: Endpoint,
+         method: HttpMethod<Data> = .get,
+         contentType: String = "application/json",
+         kind: APIRequest.Kind = .plain,
+         headers: [String: String] = [:],
+         timeoutInterval: TimeInterval = 60,
+         cachePolicy: URLRequest.CachePolicy = .reloadIgnoringLocalCacheData) {
+        
+        self.endpoint = endpoint
+        self.method = method
+        self.contentType = contentType
+        self.kind = kind
+        self.headers = headers
+        self.timeoutInterval = timeoutInterval
+        self.cachePolicy = cachePolicy
+    }
 }
 

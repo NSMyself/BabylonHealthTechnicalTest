@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+public protocol Requestable {
+    var endpoint: Endpoint { get }
+    var contentType: String { get }
+    var kind: APIRequest.Kind { get }
+    var headers: [String: String] { get }
+}
