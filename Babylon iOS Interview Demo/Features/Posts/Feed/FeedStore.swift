@@ -16,29 +16,32 @@ extension FeedViewModel {
 
     final class Store {
         
-        let api: API
-        
-        init() {
-            self.api = API(session: .shared)
-        }
-        
         enum Error: Swift.Error {
             case unknown
             case networkError
         }
         
-        func fetch() -> SignalProducer<Feed, StoreError> {
-
-            let parser = Parser<Feed>()
-            
-            return api
-                .fetch(with: APIRequest(endpoint: .init(resource: .posts)))
-                .flatMap(.latest, parser.transform)
-                .mapError { _ in StoreError.networkError }
-        }
+        let api: API
         
-        func fetch(post postId: Int) -> Post? {
-            return Post(id: 3, userId: 3, title: "fdx", body: "ewijoi wejfoijfewoijfoiwef")
+        init() {
+            self.api = API(session: .shared)
         }
+    }
+}
+
+extension FeedViewModel.Store {
+
+    func fetch() -> SignalProducer<Feed, StoreError> {
+
+        let parser = Parser<Feed>()
+        
+        return api
+            .fetch(with: APIRequest(endpoint: .init(resource: .posts)))
+            .flatMap(.latest, parser.transform)
+            .mapError { _ in StoreError.networkError }
+    }
+    
+    func fetch(post postId: Int) -> Post? {
+        return Post(id: 3, userId: 3, title: "fdx", body: "ewijoi wejfoijfewoijfoiwef")
     }
 }
