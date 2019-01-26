@@ -49,7 +49,7 @@ extension FeedViewModel {
         }
     }
     
-    static func reduceLoadingFailed(state: State, event: Event, error: StoreError) -> State { // NOT YET IMPLEMENTED
+    static func reduceLoadingFailed(state: State, event: Event, error: FeedStore.Error) -> State { // NOT YET IMPLEMENTED
         switch event {
         case .ui(.retry):
             return .loading

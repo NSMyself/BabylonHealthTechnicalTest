@@ -16,13 +16,13 @@ final class FeedViewModel {
 
     fileprivate let renderer:FeedViewModel.Renderer
     
-    private let store: FeedViewModel.Store
+    private let store: FeedStore
     let state: Property<State>
     
     let routes: Signal<Route, NoError>
     let box: Property<Box<Renderer.SectionId, Renderer.RowId>>
     
-    init(with store: FeedViewModel.Store) {
+    init(with store: FeedStore) {
         
         self.store = store
         self.renderer = FeedViewModel.Renderer()
@@ -61,11 +61,11 @@ final class FeedViewModel {
 
 extension FeedViewModel {
     
-    private static func loadingFeedback(using store: FeedViewModel.Store)  -> Feedback<State, FeedViewModel.Event> {
+    private static func loadingFeedback(using store: FeedStore)  -> Feedback<State, FeedViewModel.Event> {
         return Feedback { state -> SignalProducer<Event, NoError> in
             guard case .loading = state else { return .empty }
             
-            return store.fetch()
+            return store.load()
                 .map(Event.didLoad)
                 .flatMapError { error in
                     SignalProducer(value: Event.didFail(error))

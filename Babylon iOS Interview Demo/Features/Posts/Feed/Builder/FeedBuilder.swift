@@ -15,7 +15,7 @@ struct FeedBuilder {
     
     func make() -> UINavigationController {
         
-        let store = FeedViewModel.Store()
+        let store = FeedStore()
         let viewModel = FeedViewModel(with: store)
         let viewController = FeedViewController(with: viewModel)
         let navController = UINavigationController(rootViewController: viewController)
@@ -37,7 +37,7 @@ struct FeedBuilder {
 
 extension FeedBuilder: FeedChildBuilders {
     func makeReaderViewController(post postId: Int) -> UIViewController {
-        guard let post = FeedViewModel.Store().fetch(post: postId) else { fatalError("💥 Invalid post ID!") }
+        guard let post = FeedStore().load(post: postId) else { fatalError("💥 Invalid post ID!") }
         return ReaderViewController(using: post)
     }
 }

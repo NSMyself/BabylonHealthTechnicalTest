@@ -47,6 +47,8 @@
 		59DB653B21FCA74A001C0379 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB653A21FCA74A001C0379 /* APIRequest.swift */; };
 		59DB653D21FCB505001C0379 /* URLRequest+APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB653C21FCB505001C0379 /* URLRequest+APIRequest.swift */; };
 		59DB654021FCC9D5001C0379 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB653F21FCC9D5001C0379 /* Parser.swift */; };
+		59DB654221FCD8DB001C0379 /* FeedStore+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB654121FCD8DB001C0379 /* FeedStore+Network.swift */; };
+		59DB654421FCD8E5001C0379 /* FeedStore+Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB654321FCD8E5001C0379 /* FeedStore+Persistance.swift */; };
 		59F1548021F600860062FD19 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F1547F21F600860062FD19 /* Flow.swift */; };
 		59F1548321F600D40062FD19 /* UIViewController+Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F1548221F600D40062FD19 /* UIViewController+Flow.swift */; };
 		59F195BA21F88080009E744A /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F195B921F88080009E744A /* TabItem.swift */; };
@@ -118,6 +120,8 @@
 		59DB653A21FCA74A001C0379 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		59DB653C21FCB505001C0379 /* URLRequest+APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+APIRequest.swift"; sourceTree = "<group>"; };
 		59DB653F21FCC9D5001C0379 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		59DB654121FCD8DB001C0379 /* FeedStore+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedStore+Network.swift"; sourceTree = "<group>"; };
+		59DB654321FCD8E5001C0379 /* FeedStore+Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedStore+Persistance.swift"; sourceTree = "<group>"; };
 		59F1547F21F600860062FD19 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		59F1548221F600D40062FD19 /* UIViewController+Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Flow.swift"; sourceTree = "<group>"; };
 		59F195B921F88080009E744A /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
@@ -241,17 +245,12 @@
 		5951A97521FB37D0009D0484 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				59ADB35621F9F52C00C72527 /* Models */,
-				5951A96E21FB3520009D0484 /* Protocols */,
-				5951A98A21FB6D0A009D0484 /* UI */,
-				59F195D421F8E60A009E744A /* FeedBuilder.swift */,
-				59F195D221F8E5F1009E744A /* FeedFlowController.swift */,
-				59A5009821F7855D00DF68E6 /* FeedViewController.swift */,
-				59F195D821F8E990009E744A /* FeedViewModel.swift */,
-				59F195DC21F9D7AE009E744A /* FeedViewModel+CoreConcepts.swift */,
-				59ADB36021FA7C6100C72527 /* FeedViewModel+Reduce.swift */,
-				5951A97F21FB5291009D0484 /* FeedViewModel+Renderer.swift */,
-				59ADB35C21FA239200C72527 /* FeedStore.swift */,
+				59DB654921FCD918001C0379 /* Common */,
+				59DB654A21FCD922001C0379 /* Builder */,
+				59DB654B21FCD928001C0379 /* FlowController */,
+				59DB654C21FCD931001C0379 /* ViewController */,
+				59DB654821FCD90B001C0379 /* FeedViewModel */,
+				59DB654721FCD8FE001C0379 /* FeedStore */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -362,6 +361,61 @@
 				59DB653F21FCC9D5001C0379 /* Parser.swift */,
 			);
 			path = Parsing;
+			sourceTree = "<group>";
+		};
+		59DB654721FCD8FE001C0379 /* FeedStore */ = {
+			isa = PBXGroup;
+			children = (
+				59ADB35C21FA239200C72527 /* FeedStore.swift */,
+				59DB654121FCD8DB001C0379 /* FeedStore+Network.swift */,
+				59DB654321FCD8E5001C0379 /* FeedStore+Persistance.swift */,
+			);
+			path = FeedStore;
+			sourceTree = "<group>";
+		};
+		59DB654821FCD90B001C0379 /* FeedViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				59F195D821F8E990009E744A /* FeedViewModel.swift */,
+				59F195DC21F9D7AE009E744A /* FeedViewModel+CoreConcepts.swift */,
+				59ADB36021FA7C6100C72527 /* FeedViewModel+Reduce.swift */,
+				5951A97F21FB5291009D0484 /* FeedViewModel+Renderer.swift */,
+			);
+			path = FeedViewModel;
+			sourceTree = "<group>";
+		};
+		59DB654921FCD918001C0379 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				59ADB35621F9F52C00C72527 /* Models */,
+				5951A96E21FB3520009D0484 /* Protocols */,
+				5951A98A21FB6D0A009D0484 /* UI */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		59DB654A21FCD922001C0379 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				59F195D421F8E60A009E744A /* FeedBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		59DB654B21FCD928001C0379 /* FlowController */ = {
+			isa = PBXGroup;
+			children = (
+				59F195D221F8E5F1009E744A /* FeedFlowController.swift */,
+			);
+			path = FlowController;
+			sourceTree = "<group>";
+		};
+		59DB654C21FCD931001C0379 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				59A5009821F7855D00DF68E6 /* FeedViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		59F1547D21F5FD6C0062FD19 /* Navigation */ = {
@@ -695,6 +749,7 @@
 				59ADB35821F9F53500C72527 /* Post.swift in Sources */,
 				59F195DB21F92E62009E744A /* NoError.swift in Sources */,
 				59F195BF21F88418009E744A /* RootDelegate.swift in Sources */,
+				59DB654421FCD8E5001C0379 /* FeedStore+Persistance.swift in Sources */,
 				59F195C921F88B86009E744A /* UITabBarItem+initWithTabItem.swift in Sources */,
 				59A5009421F77A9700DF68E6 /* RootViewModel.swift in Sources */,
 				59DB654021FCC9D5001C0379 /* Parser.swift in Sources */,
@@ -704,6 +759,7 @@
 				59DB653121FC8E1A001C0379 /* Endpoint.swift in Sources */,
 				5947444021F1E8DE00BDE970 /* AppDelegate.swift in Sources */,
 				59A5009B21F7858900DF68E6 /* AboutMeViewController.swift in Sources */,
+				59DB654221FCD8DB001C0379 /* FeedStore+Network.swift in Sources */,
 				59DB652F21FC8DF6001C0379 /* JSONDictionary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
