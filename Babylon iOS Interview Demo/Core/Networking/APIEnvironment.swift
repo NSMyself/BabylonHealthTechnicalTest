@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Environment {
+enum APIEnvironment {
     case development
     case production
     

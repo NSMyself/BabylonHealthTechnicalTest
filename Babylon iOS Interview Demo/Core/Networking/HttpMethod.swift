@@ -8,9 +8,29 @@
 
 import Foundation
 
-enum HttpMethod: String {
-    case get = "GET"
-    case post = "POST"
-    case put = "PUT"
-    case delete = "DELETE"
+public enum HttpMethod<Body> {
+    case get
+    case post(Body)
+    case put
+    case delete
+    case head
+    case patch
+    case trace
+    case connect
+}
+
+extension HttpMethod {
+    
+    var value: String {
+        switch self {
+        case .get: return "GET"
+        case .post: return "POST"
+        case .put: return "PUT"
+        case .delete: return "DELETE"
+        case .head: return "HEAD"
+        case .patch: return "PATCH"
+        case .trace: return "TRACE"
+        case .connect: return "CONNECT"
+        }
+    }
 }
