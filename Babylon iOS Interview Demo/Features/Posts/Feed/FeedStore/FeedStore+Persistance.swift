@@ -1,5 +1,5 @@
 //
-//  FeedStore+Database.swift
+//  FeedStore+PersistenceProvider.swift
 //  Babylon iOS Interview Demo
 //
 //  Created by João Pereira on 26/01/2019.
@@ -10,7 +10,7 @@ import ReactiveSwift
 
 extension FeedStore {
     
-    struct Persistence {
+    struct Persistence: Provider {
         func fetch() -> SignalProducer<Feed, FeedStore.Error> {
             return .empty
         }

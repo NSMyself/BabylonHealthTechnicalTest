@@ -10,7 +10,7 @@ import ReactiveSwift
 
 extension FeedStore {
     
-    struct Network {
+    struct Network: Provider {
         let api: API
         
         init() {

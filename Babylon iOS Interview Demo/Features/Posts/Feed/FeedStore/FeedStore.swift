@@ -10,6 +10,10 @@ import Foundation
 import ReactiveSwift
 import Result
 
+protocol Provider {
+    func fetch() -> SignalProducer<Feed, FeedStore.Error>
+}
+
 final class FeedStore {
     
     enum Error: Swift.Error {
@@ -27,12 +31,10 @@ final class FeedStore {
             .on(value: { [database] feed in
                 database.store(items: feed)
             })
-            
     }
     
     func load(post postId: Int) -> Post? {
         return Post(id: 3, userId: 3, title: "fdx", body: "ewijoi wejfoijfewoijfoiwef")
     }
 }
-
 
