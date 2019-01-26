@@ -18,7 +18,7 @@ PODS:
   - StyleSheets (0.3)
 
 DEPENDENCIES:
-  - "Bento (from `git@github.com:NSMyself/Bento.git`, branch `master`)"
+  - "Bento (from `git@github.com:Babylonpartners/Bento.git`, branch `master`)"
   - "BentoKit (from `git@github.com:Babylonpartners/Bento.git`, branch `master`)"
   - ReactiveFeedback
   - ReactiveSwift
@@ -35,7 +35,7 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   Bento:
     :branch: master
-    :git: "git@github.com:NSMyself/Bento.git"
+    :git: "git@github.com:Babylonpartners/Bento.git"
   BentoKit:
     :branch: master
     :git: "git@github.com:Babylonpartners/Bento.git"
@@ -45,8 +45,8 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Bento:
-    :commit: c1e7fc4bbfdc5bc61e1e360d1375166bccab837d
-    :git: "git@github.com:NSMyself/Bento.git"
+    :commit: ad95cd2419da77584694712d9eb5101be6ac614e
+    :git: "git@github.com:Babylonpartners/Bento.git"
   BentoKit:
     :commit: 0bc7efda31e571cded03afa4853f7966c652a154
     :git: "git@github.com:Babylonpartners/Bento.git"
@@ -64,6 +64,6 @@ SPEC CHECKSUMS:
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   StyleSheets: f600049ce8a0d9ed60e1b5886c5c20ef61fd9209
 
-PODFILE CHECKSUM: f9b3cdfc97ce4af9b25aeeb3311968f38b1128db
+PODFILE CHECKSUM: e3978e284145aff45f3fe0a4d9bd6903288fec2f
 
 COCOAPODS: 1.5.3

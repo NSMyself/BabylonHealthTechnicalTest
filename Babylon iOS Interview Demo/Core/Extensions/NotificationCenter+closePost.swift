@@ -1,5 +1,5 @@
 //
-//  ReaderDelegate.swift
+//  NotificationCenter+Name.swift
 //  Babylon iOS Interview Demo
 //
 //  Created by João Pereira on 26/01/2019.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ReaderDelegate: class {
-    func dismissing()
+extension Notification.Name {
+    static let closePost = Notification.Name("closePost")
 }

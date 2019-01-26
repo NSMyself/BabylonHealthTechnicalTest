@@ -18,7 +18,9 @@ extension FeedViewModel {
     
     class Renderer {
         
-        init() {}
+        init() {
+            monitorPostDismissal()
+        }
         
         let (signal, observer) = Signal<Box<SectionId, RowId>, NoError>.pipe()
         let (tapSignal, tapObserver) = Signal<Action, NoError>.pipe()
@@ -108,6 +110,21 @@ extension FeedViewModel.Renderer.RowId: Hashable {
             return lhsPost == rhsPost
         default:
             return false
+        }
+    }
+}
+
+extension FeedViewModel.Renderer {
+    
+    // Used to detect if a user's dismissed a ReaderViewController
+    // this is akin of saying that user just read a post and went back to the feed
+    func monitorPostDismissal() {
+        NotificationCenter
+            .default
+            .reactive
+            .notifications(forName: .closePost)
+            .observe { [tapObserver] _ in
+                tapObserver.send(value: .didClosePost)
         }
     }
 }

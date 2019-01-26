@@ -6,7 +6,7 @@ target 'Babylon iOS Interview Demo' do
   # Pods for Babylon iOS Interview Demo
      pod 'ReactiveSwift'
      pod 'ReactiveFeedback'
-     pod 'Bento', :git => 'git@github.com:NSMyself/Bento.git', :branch => 'master'
+     pod 'Bento', :git => 'git@github.com:Babylonpartners/Bento.git', :branch => 'master'
      pod 'BentoKit', :git => 'git@github.com:Babylonpartners/Bento.git', :branch => 'master'
      pod 'StyleSheets', :git => 'git@github.com:Babylonpartners/Bento.git', :branch => 'master'
 

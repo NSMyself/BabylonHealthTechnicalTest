@@ -11,11 +11,9 @@ import UIKit
 class ReaderViewController: UIViewController {
     
     let post: Post
-    private weak var delegate: ReaderDelegate?
     
-    init(using post: Post, delegate: ReaderDelegate? = nil) {
+    init(using post: Post) {
         self.post = post
-        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -31,6 +29,6 @@ class ReaderViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         guard isMovingFromParent else { return }
-        delegate?.dismissing()
+        NotificationCenter.default.post(Notification(name: .closePost))
     }
 }

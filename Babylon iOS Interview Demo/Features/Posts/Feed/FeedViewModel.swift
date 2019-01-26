@@ -106,8 +106,4 @@ extension FeedViewModel: FeedRenderDelegate {
             return false
         }
     }
-    
-    func didClosePost() {
-        renderer.tapObserver.send(value: .didClosePost)
-    }
 }
