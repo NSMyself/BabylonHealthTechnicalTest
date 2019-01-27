@@ -15,7 +15,7 @@ typealias Context = FeedViewModel.Renderer.Context
 
 extension FeedViewModel {
     
-    class Renderer {
+    final class Renderer {
         
         init() {
             monitorDismissal()
@@ -45,7 +45,7 @@ extension FeedViewModel {
                     title: post.title,
                     body: post.body,
                     didTap: { [weak self] in
-                        self?.tapObserver.send(value: .didSelect(postId: post.id.rawValue))
+                        self?.tapObserver.send(value: .didSelect(post: post))
                     }
                 )
             }

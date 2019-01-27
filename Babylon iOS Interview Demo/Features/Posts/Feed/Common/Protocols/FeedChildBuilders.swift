@@ -9,5 +9,5 @@
 import UIKit
 
 protocol FeedChildBuilders {
-    func makeReaderViewController(post: Int) -> UIViewController
+    func makeReaderViewController(post: Post) -> UIViewController
 }

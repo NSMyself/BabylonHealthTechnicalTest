@@ -49,6 +49,8 @@ final class AboutMeViewController: UIViewController {
     private let gridUnit: CGFloat = 20
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         self.title = "about_tab_title".localized
         self.view.backgroundColor = UIColor(red:0.94, green:0.94, blue:0.94, alpha:1.0)
         

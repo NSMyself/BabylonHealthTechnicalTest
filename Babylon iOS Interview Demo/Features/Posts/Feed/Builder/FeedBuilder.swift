@@ -36,8 +36,9 @@ struct FeedBuilder {
 }
 
 extension FeedBuilder: FeedChildBuilders {
-    func makeReaderViewController(post postId: Int) -> UIViewController {
-        guard let post = FeedStore().loadSpecific(post: postId) else { fatalError("💥 Invalid post ID!") }
-        return ReaderViewController(using: post)
+    
+    func makeReaderViewController(post: Post) -> UIViewController {
+        let viewModel = ReaderViewModel(with: post, store: FeedStore())
+        return ReaderViewController(with: viewModel)
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 import ReactiveSwift
 
-class FeedFlowController {
+final class FeedFlowController {
 
     private let modalFlow: Flow
     private let navigationFlow: Flow

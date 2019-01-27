@@ -14,7 +14,7 @@ extension FeedViewModel {
         case loading
         case loaded([Post], FeedStore.Error?)
         case loadingFailed(FeedStore.Error)
-        case showing(postId: Int)
+        case showing(post: Post)
         case closingPost
     }
     
@@ -25,7 +25,7 @@ extension FeedViewModel {
     }
     
     enum Action: Equatable {
-        case didSelect(postId: Int)
+        case didSelect(post: Post)
         case didClosePost
         case retry
     }
@@ -34,7 +34,7 @@ extension FeedViewModel {
         case showLoading()
         case showFeed(feed: [Post])
         case showAlert(alert: FeedStore.Error)
-        case showPost(_ post: Int)
+        case showPost(_ post: Post)
         case closePost
     }
 }

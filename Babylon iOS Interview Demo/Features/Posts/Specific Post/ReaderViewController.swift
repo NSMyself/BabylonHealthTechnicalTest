@@ -8,12 +8,60 @@
 
 import UIKit
 
-class ReaderViewController: UIViewController {
+final class ReaderViewController: UIViewController {
     
-    let post: Post
+    let viewModel: ReaderViewModel
+    private let padding: CGFloat = 8
     
-    init(using post: Post) {
-        self.post = post
+    let scrollView: UIScrollView = {
+        $0.frame = .zero
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UIScrollView())
+    
+    let stackView: UIStackView = {
+        $0.frame = .zero
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.axis = .vertical
+        $0.alignment = .fill
+        $0.spacing = 20
+        return $0
+    }(UIStackView())
+    
+    let titleLabel: UILabel = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = UIFont.systemFont(ofSize: 20)
+        $0.textColor = .black
+        $0.numberOfLines = 0
+        return $0
+    }(UILabel())
+    
+    let descriptionLabel: UILabel = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = UIFont.systemFont(ofSize: 13)
+        $0.textColor = .gray
+        $0.numberOfLines = 0
+        return $0
+    }(UILabel())
+    
+    let userLabel: UILabel = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = UIFont.systemFont(ofSize: 15)
+        $0.textColor = .gray
+        $0.numberOfLines = 0
+        return $0
+    }(UILabel())
+    
+    let commentsLabel: UILabel = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = UIFont.systemFont(ofSize: 13)
+        $0.textColor = .gray
+        $0.numberOfLines = 0
+        return $0
+    }(UILabel())
+    
+    init(with viewModel: ReaderViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -23,6 +71,34 @@ class ReaderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = .white
+        self.title = "post_details".localized
+        
+        view.addSubview(scrollView)
+        scrollView.addSubview(stackView)
+        
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(descriptionLabel)
+        stackView.addArrangedSubview(userLabel)
+        stackView.addArrangedSubview(commentsLabel)
+        
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: padding),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -padding*2),
+            stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.9)
+        ])
+        
+        titleLabel.text = viewModel.title
+        descriptionLabel.text = viewModel.body
+        userLabel.text = "\("by".localized): Zé Carlos"
+        commentsLabel.text = "\("total_comments".localized): 93393"
     }
     
     override func viewWillDisappear(_ animated: Bool) {

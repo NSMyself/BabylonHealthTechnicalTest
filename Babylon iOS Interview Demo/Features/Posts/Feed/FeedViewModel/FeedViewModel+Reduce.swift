@@ -31,8 +31,8 @@ extension FeedViewModel {
             return .loadingFailed(error)
         case let .didLoad(posts):
             return .loaded(posts, nil)
-        case let .ui(.didSelect(postId)):
-            return .showing(postId: postId)
+        case let .ui(.didSelect(post)):
+            return .showing(post: post)
         default:
             return state
         }
@@ -41,7 +41,7 @@ extension FeedViewModel {
     static func reduceLoaded(state: State, event: Event) -> State {
         switch event {
         case let .ui(.didSelect(post)):
-            return .showing(postId: post)
+            return .showing(post: post)
         case let .didLoad(feed):
             return .loaded(feed, nil)
         default:
@@ -58,10 +58,10 @@ extension FeedViewModel {
         }
     }
     
-    static func reduceShow(state: State, event: Event, post: Int) -> State {
+    static func reduceShow(state: State, event: Event, post: Post) -> State {
         switch event {
         case .ui(.didSelect(post)):
-            return .showing(postId: post)
+            return .showing(post: post)
         case .ui(.didClosePost):
             return .loading
         default:

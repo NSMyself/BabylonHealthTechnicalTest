@@ -96,9 +96,3 @@ extension FeedStore {
             })
     }
 }
-
-extension FeedStore {
-    func loadSpecific(post postId: Int) -> Post? {
-        return Post(id: 3, userId: 3, title: "fdx", body: "ewijoi wejfoijfewoijfoiwef")
-    }
-}
