@@ -25,7 +25,6 @@ struct Parser<T: Decodable> {
         }
     }
     
-    
     private static func parse(data: Data?) -> T? {
         guard let data = data else { return nil }
         return try? JSONDecoder().decode(T.self, from: data)

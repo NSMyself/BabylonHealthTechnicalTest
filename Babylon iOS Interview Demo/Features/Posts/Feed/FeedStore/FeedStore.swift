@@ -50,6 +50,9 @@ final class FeedStore {
                 persistence.store(comments: feed)
         }
     }
+}
+
+extension FeedStore {
     
     func loadPosts() -> SignalProducer<[Post], FeedStore.Error> {
     
@@ -59,13 +62,43 @@ final class FeedStore {
         
         return network
             .fetchPosts()
-            .flatMapError { [persistence] _ in persistence.fetch(resource: .posts) }
+            .flatMapError { [persistence] _ in persistence.fetchPosts() }
             .on(value: { [posts] feed in
                 posts.value = feed
             })
     }
     
-    func load(post postId: Int) -> Post? {
+    func loadUsers() -> SignalProducer<[User], FeedStore.Error> {
+        
+        guard (users.value.count == 0) else {
+            return users.producer.promoteError()
+        }
+        
+        return network
+            .fetchUsers()
+            .flatMapError { [persistence] _ in persistence.fetchUsers() }
+            .on(value: { [users] feed in
+                users.value = feed
+            })
+    }
+    
+    func loadComments() -> SignalProducer<[Comment], FeedStore.Error> {
+        
+        guard (comments.value.count == 0) else {
+            return comments.producer.promoteError()
+        }
+        
+        return network
+            .fetchComments()
+            .flatMapError { [persistence] _ in persistence.fetchComments() }
+            .on(value: { [comments] feed in
+                comments.value = feed
+            })
+    }
+}
+
+extension FeedStore {
+    func loadSpecific(post postId: Int) -> Post? {
         return Post(id: 3, userId: 3, title: "fdx", body: "ewijoi wejfoijfewoijfoiwef")
     }
 }

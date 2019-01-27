@@ -8,7 +8,7 @@
 
 import Tagged
 
-struct Comment: Codable, Hashable {
+public struct Comment: Codable, Hashable {
     let postId: Post.Id?
     let id: Id
     let name: String

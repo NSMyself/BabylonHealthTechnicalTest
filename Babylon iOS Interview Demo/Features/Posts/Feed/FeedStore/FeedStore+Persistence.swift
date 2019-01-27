@@ -10,13 +10,9 @@ import Foundation
 import ReactiveSwift
 import os.log
 
-protocol Provider {
-    func fetch(resource: Endpoint.Resource) -> SignalProducer<[Post], FeedStore.Error>
-}
-
 extension FeedStore {
     
-    final class Persistence: Provider {
+    final class Persistence {
         
         enum PersistenceError: Swift.Error, Loggable {
             case documentDirectoryNotFound
@@ -46,34 +42,66 @@ extension FeedStore {
                 }
             }
         }
+    }
+}
+
+extension FeedStore.Persistence {
         
-        func fetch(resource: Endpoint.Resource) -> SignalProducer<[Post], FeedStore.Error> {
+    func fetchPosts() -> SignalProducer<[Post], FeedStore.Error> {
+        
+        return SignalProducer<[Post], FeedStore.Error> { [weak self] observer, lifetime in
             
-            return SignalProducer<[Post], FeedStore.Error> { [weak self] observer, lifetime in
-                
-                guard let posts:[Post] = self?.decode(data: self?.loadFromDisk()) else {
-                    observer.send(error: FeedStore.Error.databaseError)
-                    return
-                }
-                
-                observer.send(value: posts)
+            guard let posts:[Post] = self?.decode(data: self?.loadFromDisk()) else {
+                observer.send(error: FeedStore.Error.databaseError)
+                return
             }
+            
+            observer.send(value: posts)
         }
+    }
+    
+    func fetchUsers() -> SignalProducer<[User], FeedStore.Error> {
         
-        func store(posts objects: [Post]) {
-            guard validate(objects) else { return }
-            objects |> encode >>> storeToDisk(posts:)
+        return SignalProducer<[User], FeedStore.Error> { [weak self] observer, lifetime in
+            
+            guard let posts:[User] = self?.decode(data: self?.loadFromDisk()) else {
+                observer.send(error: FeedStore.Error.databaseError)
+                return
+            }
+            
+            observer.send(value: posts)
         }
+    }
+    
+    func fetchComments() -> SignalProducer<[Comment], FeedStore.Error> {
         
-        func store(users objects: [User]) {
-            guard validate(objects) else { return }
-            objects |> encode >>> storeToDisk(users:)
+        return SignalProducer<[Comment], FeedStore.Error> { [weak self] observer, lifetime in
+            
+            guard let posts:[Comment] = self?.decode(data: self?.loadFromDisk()) else {
+                observer.send(error: FeedStore.Error.databaseError)
+                return
+            }
+            
+            observer.send(value: posts)
         }
-        
-        func store(comments objects: [Comment]) {
-            guard validate(objects) else { return }
-            objects |> encode >>> storeToDisk(comments:)
-        }
+    }
+}
+
+extension FeedStore.Persistence {
+
+    func store(posts objects: [Post]) {
+        guard validate(objects) else { return }
+        objects |> encode >>> storeToDisk(posts:)
+    }
+    
+    func store(users objects: [User]) {
+        guard validate(objects) else { return }
+        objects |> encode >>> storeToDisk(users:)
+    }
+    
+    func store(comments objects: [Comment]) {
+        guard validate(objects) else { return }
+        objects |> encode >>> storeToDisk(comments:)
     }
 }
 

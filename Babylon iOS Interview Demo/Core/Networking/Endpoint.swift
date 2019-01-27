@@ -9,12 +9,6 @@
 import Foundation
 
 public struct Endpoint {
-
-    public enum Resource: String {
-        case posts
-        case users
-        case comments
-    }
     
     let environment: APIEnvironment
     let resource: Resource

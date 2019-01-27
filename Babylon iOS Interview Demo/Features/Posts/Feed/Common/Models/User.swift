@@ -8,7 +8,7 @@
 
 import Tagged
 
-struct User: Codable, Hashable {
+public struct User: Codable, Hashable {
     let id: Id
     let username: String
     let name: String

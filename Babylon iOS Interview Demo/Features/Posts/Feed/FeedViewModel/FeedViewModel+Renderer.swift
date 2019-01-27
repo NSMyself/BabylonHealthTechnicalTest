@@ -54,7 +54,7 @@ extension FeedViewModel {
                 
                 return RowId.post(post) <> PostComponent(
                     title: post.title,
-                    body: "olarecas",
+                    body: post.body,
                     didTap: { [weak self] in
                         self?.tapObserver.send(value: .didSelect(postId: post.id.rawValue))
                     }

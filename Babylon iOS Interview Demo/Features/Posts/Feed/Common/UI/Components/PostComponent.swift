@@ -10,10 +10,13 @@ import Bento
 import BentoKit
 
 final class PostComponent: Renderable {
-
+    
     private let title: String
     private let body: String
     private var didTap: (() -> Void)? = nil
+    
+    // Used to "sneak peek" the post's content
+    private let visibleBodyLength = 20
 
     typealias View = PostCell
     
@@ -28,8 +31,11 @@ final class PostComponent: Renderable {
     }
     
     func render(in view: PostCell) {
+        
+        let sneakPeek = String.Index.init(encodedOffset: visibleBodyLength < body.count ? visibleBodyLength : body.count / 2)
+        
         view.titleLabel.text = title
-        view.descriptionLabel.text = "\("by".localized) \(body)"
+        view.descriptionLabel.text = "\(String(body[..<sneakPeek]))..."
         view.didTap = didTap
     }
 }

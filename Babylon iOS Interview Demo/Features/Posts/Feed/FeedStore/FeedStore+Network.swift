@@ -20,7 +20,23 @@ extension FeedStore {
                 .retry(upTo: 3)
                 .flatMap(.latest, Parser<[Post]>().transform)
                 .mapError { _ in FeedStore.Error.networkError }
-        }   
+        }
+        
+        func fetchComments() -> SignalProducer<[Comment], FeedStore.Error> {
+            return API()
+                .fetch(with: APIRequest(endpoint: .init(resource: .comments)))
+                .retry(upTo: 3)
+                .flatMap(.latest, Parser<[Comment]>().transform)
+                .mapError { _ in FeedStore.Error.networkError }
+        }
+        
+        func fetchUsers() -> SignalProducer<[User], FeedStore.Error> {
+            return API()
+                .fetch(with: APIRequest(endpoint: .init(resource: .users)))
+                .retry(upTo: 3)
+                .flatMap(.latest, Parser<[User]>().transform)
+                .mapError { _ in FeedStore.Error.networkError }
+        }
     }
 }
 
