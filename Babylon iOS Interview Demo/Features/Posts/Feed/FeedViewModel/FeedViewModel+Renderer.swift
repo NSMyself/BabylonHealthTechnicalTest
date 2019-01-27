@@ -19,13 +19,13 @@ extension FeedViewModel {
     class Renderer {
         
         init() {
-            monitorPostDismissal()
+            monitorDismissal()
         }
         
         let (signal, observer) = Signal<Box<SectionId, RowId>, NoError>.pipe()
         let (tapSignal, tapObserver) = Signal<Action, NoError>.pipe()
 
-        func render(feed: Feed)  {
+        func render(feed: [Post])  {
             
             let box = Box.empty
                 |-+ Section(id: SectionId.noId)
@@ -34,7 +34,7 @@ extension FeedViewModel {
             observer.send(value: box)
         }
         
-        func makeRows(from posts: Feed) -> [Node<RowId>] {
+        func makeRows(from posts: [Post]) -> [Node<RowId>] {
             
             guard posts.count > 0 else {
                 return [RowId.noData <> PlaceholderComponent()]
@@ -45,7 +45,7 @@ extension FeedViewModel {
                     text: post.title,
                     accessoryIcon: nil,
                     didTap: { [weak self] in
-                        self?.tapObserver.send(value: .didSelect(postId: post.id))
+                        self?.tapObserver.send(value: .didSelect(postId: post.id.rawValue))
                     },
                     styleSheet: Component.Description.StyleSheet()
                         .compose(\.backgroundColor, UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0))
@@ -93,7 +93,7 @@ extension FeedViewModel.Renderer {
     }
     
     enum Context {
-        case feed(Feed)
+        case feed([Post])
         case placeholder(Placeholder)
         
         enum Placeholder {
@@ -118,7 +118,7 @@ extension FeedViewModel.Renderer {
     
     // Used to detect if a user's dismissed a ReaderViewController
     // this is akin of saying that user just read a post and went back to the feed
-    func monitorPostDismissal() {
+    func monitorDismissal() {
         NotificationCenter
             .default
             .reactive

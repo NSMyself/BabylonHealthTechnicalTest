@@ -12,14 +12,14 @@ extension FeedViewModel {
     
     enum State: Equatable {
         case loading
-        case loaded(Feed, FeedStore.Error?)
+        case loaded([Post], FeedStore.Error?)
         case loadingFailed(FeedStore.Error)
         case showing(postId: Int)
         case closingPost
     }
     
     enum Event: Equatable {
-        case didLoad(Feed)
+        case didLoad([Post])
         case didFail(FeedStore.Error)
         case ui(Action)
     }
@@ -32,7 +32,7 @@ extension FeedViewModel {
     
     enum Route {
         case showLoading()
-        case showFeed(feed: Feed)
+        case showFeed(feed: [Post])
         case showAlert(alert: FeedStore.Error)
         case showPost(_ post: Int)
         case closePost

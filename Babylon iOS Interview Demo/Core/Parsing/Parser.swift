@@ -10,6 +10,8 @@ import ReactiveSwift
 
 struct Parser<T> where T: Decodable {
     
+    init() {}
+    
     let transform: (Data?, URLResponse) -> SignalProducer<T, APIError> = { data, response in
         return SignalProducer { observable, disposable in
             

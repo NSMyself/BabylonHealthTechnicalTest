@@ -2,11 +2,11 @@
 //  Right Arrow.swift
 //  Babylon iOS Interview Demo
 //
+// Originally seen in PointFree (https://www.pointfree.co)
+// All credit goes to Stephen Celis and Brandon Williams
+//
 
 import Foundation
-
-// Originally seen in PointFree
-// All credit goes to Stephen Celis and Brandon Williams
 
 infix operator >>>: ForwardComposition
 

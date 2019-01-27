@@ -65,7 +65,7 @@ extension FeedViewModel {
         return Feedback { state -> SignalProducer<Event, NoError> in
             guard case .loading = state else { return .empty }
             
-            return store.load()
+            return store.loadPosts()
                 .map(Event.didLoad)
                 .flatMapError { error in
                     SignalProducer(value: Event.didFail(error))

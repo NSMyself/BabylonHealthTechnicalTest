@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import Tagged
 
 public struct Post: Codable, Hashable {
-    let id: Int
+    let id: Id
     let userId: Int
     let title: String
     let body: String
+    
+    typealias Id = Tagged<Post, Int>
 }

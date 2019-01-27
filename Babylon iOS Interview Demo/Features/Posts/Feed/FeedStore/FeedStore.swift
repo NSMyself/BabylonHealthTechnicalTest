@@ -10,26 +10,34 @@ import Foundation
 import ReactiveSwift
 import Result
 
-protocol Provider {
-    func fetch() -> SignalProducer<Feed, FeedStore.Error>
-}
-
 final class FeedStore {
     
-    enum Error: Swift.Error {
-        case unknown
+    enum Error: Swift.Error, Loggable {
         case networkError
+        func log() {}
     }
     
-    let networkLoader = FeedStore.Network()
-    let database = FeedStore.Persistence()
-
-    func load() -> SignalProducer<Feed, FeedStore.Error> {
+    private let database = FeedStore.Persistence()
+    private let network = FeedStore.Network()
     
-        return networkLoader
-            .fetch()
-            .on(value: { [database] feed in
-                database.store(items: feed)
+    private let posts = MutableProperty<[Post]>([])
+
+    init() {
+        posts
+            .producer
+            .skipRepeats()
+            .filter { $0.count > 0 }
+            .startWithValues { [database] feed in
+                database.store(posts: feed)
+            }
+    }
+    
+    func loadPosts() -> SignalProducer<[Post], FeedStore.Error> {
+    
+        return network
+            .fetchPosts()
+            .on(value: { [posts] feed in
+                posts.value = feed
             })
     }
     
@@ -37,4 +45,3 @@ final class FeedStore {
         return Post(id: 3, userId: 3, title: "fdx", body: "ewijoi wejfoijfewoijfoiwef")
     }
 }
-

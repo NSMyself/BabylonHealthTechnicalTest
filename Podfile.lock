@@ -16,6 +16,7 @@ PODS:
     - Result (~> 4.0)
   - Result (4.1.0)
   - StyleSheets (0.3)
+  - Tagged (0.2.0)
 
 DEPENDENCIES:
   - "Bento (from `git@github.com:Babylonpartners/Bento.git`, branch `master`)"
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - ReactiveFeedback
   - ReactiveSwift
   - "StyleSheets (from `git@github.com:Babylonpartners/Bento.git`, branch `master`)"
+  - Tagged (~> 0.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -31,6 +33,7 @@ SPEC REPOS:
     - ReactiveFeedback
     - ReactiveSwift
     - Result
+    - Tagged
 
 EXTERNAL SOURCES:
   Bento:
@@ -63,7 +66,8 @@ SPEC CHECKSUMS:
   ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   StyleSheets: f600049ce8a0d9ed60e1b5886c5c20ef61fd9209
+  Tagged: 20ad99855b2d2bdfff0b9d6937ff4f2a123489fa
 
-PODFILE CHECKSUM: e3978e284145aff45f3fe0a4d9bd6903288fec2f
+PODFILE CHECKSUM: 18168f33076877c3ee0e86fccd7c740618481a14
 
 COCOAPODS: 1.5.3

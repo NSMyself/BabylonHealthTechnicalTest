@@ -6,24 +6,21 @@
 //  Copyright © 2019 NSMyself. All rights reserved.
 //
 
+import Foundation
 import ReactiveSwift
+import os.log
 
 extension FeedStore {
     
-    struct Network: Provider {
-        let api: API
+    final class Network {
         
-        init() {
-            self.api = API(session: .shared)
-        }
-        
-        func fetch() -> SignalProducer<Feed, FeedStore.Error> {
-            let parser = Parser<Feed>()
-            
-            return api
+        func fetchPosts() -> SignalProducer<[Post], FeedStore.Error> {
+            return API()
                 .fetch(with: APIRequest(endpoint: .init(resource: .posts)))
-                .flatMap(.latest, parser.transform)
+                .retry(upTo: 3)
+                .flatMap(.latest, Parser<[Post]>().transform)
                 .mapError { _ in FeedStore.Error.networkError }
-        }
+        }   
     }
 }
+
