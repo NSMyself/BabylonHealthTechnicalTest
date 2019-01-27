@@ -11,7 +11,7 @@ import BentoKit
 
 final class PostCell: InteractiveView {
     
-    private let labelPadding: CGFloat = 4
+    private let padding: CGFloat = 8
     
     let titleLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +22,7 @@ final class PostCell: InteractiveView {
     
     let descriptionLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.font = UIFont.systemFont(ofSize: 14)
+        $0.font = UIFont.systemFont(ofSize: 13)
         $0.textColor = .gray
         return $0
     }(UILabel())
@@ -47,15 +47,15 @@ final class PostCell: InteractiveView {
         addSubview(descriptionLabel)
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: labelPadding),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: labelPadding),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -labelPadding),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
             
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: labelPadding),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: padding/2),
             descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -labelPadding)
-            ])
+            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding)
+        ])
         
         isUserInteractionEnabled = true
     }

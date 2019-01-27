@@ -6,12 +6,11 @@
 //  Copyright © 2019 NSMyself. All rights reserved.
 //
 
-import Foundation
 import Tagged
 
 public struct Post: Codable, Hashable {
     let id: Id
-    let userId: User.Id
+    let userId: User.Id?
     let title: String
     let body: String
     

@@ -29,7 +29,7 @@ final class PostComponent: Renderable {
     
     func render(in view: PostCell) {
         view.titleLabel.text = title
-        view.descriptionLabel.text = body
+        view.descriptionLabel.text = "\("by".localized) \(body)"
         view.didTap = didTap
     }
 }

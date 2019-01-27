@@ -8,7 +8,7 @@
 
 import ReactiveSwift
 
-struct Parser<T> where T: Decodable {
+struct Parser<T: Decodable> {
     
     init() {}
     
