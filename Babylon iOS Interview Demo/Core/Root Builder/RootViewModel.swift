@@ -13,11 +13,11 @@ final class RootViewModel {
     private let tabs: [Tab] = [
         Tab(
             route: .posts,
-            item: TabItem(title: "Bookmarks", image: #imageLiteral(resourceName: "Posts"), selectedImage: #imageLiteral(resourceName: "Posts"))
+            item: TabItem(title: "feed_tab_title".localized, image: #imageLiteral(resourceName: "Posts"), selectedImage: #imageLiteral(resourceName: "Posts"))
         ),
         Tab(
             route: .aboutMe,
-            item: TabItem(title: "About", image: #imageLiteral(resourceName: "About Me"), selectedImage: #imageLiteral(resourceName: "About Me"))
+            item: TabItem(title: "about_tab_title".localized, image: #imageLiteral(resourceName: "About Me"), selectedImage: #imageLiteral(resourceName: "About Me"))
         )
     ]
     

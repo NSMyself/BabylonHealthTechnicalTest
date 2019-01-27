@@ -11,7 +11,7 @@ import UIKit
 final class AboutMeViewController: UIViewController {
     
     override func viewDidLoad() {
-        self.title = "About"
+        self.title = "about_tab_title".localized
         self.view.backgroundColor = .blue
     }
 }

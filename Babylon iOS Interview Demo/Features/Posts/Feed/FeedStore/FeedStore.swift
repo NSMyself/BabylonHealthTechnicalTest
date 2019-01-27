@@ -14,10 +14,11 @@ final class FeedStore {
     
     enum Error: Swift.Error, Loggable {
         case networkError
+        case databaseError
         func log() {}
     }
     
-    private let database = FeedStore.Persistence()
+    private let persistence = FeedStore.Persistence()
     private let network = FeedStore.Network()
     
     private let posts = MutableProperty<[Post]>([])
@@ -27,15 +28,20 @@ final class FeedStore {
             .producer
             .skipRepeats()
             .filter { $0.count > 0 }
-            .startWithValues { [database] feed in
-                database.store(posts: feed)
+            .startWithValues { [persistence] feed in
+                persistence.store(posts: feed)
             }
     }
     
     func loadPosts() -> SignalProducer<[Post], FeedStore.Error> {
     
+        guard (posts.value.count == 0) else {
+            return posts.producer.promoteError()
+        }
+        
         return network
             .fetchPosts()
+            .flatMapError { [persistence] _ in persistence.fetch(resource: .posts) }
             .on(value: { [posts] feed in
                 posts.value = feed
             })

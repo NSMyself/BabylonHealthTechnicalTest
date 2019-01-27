@@ -34,7 +34,7 @@ extension FeedFlowController {
         case let .showPost(post):
             navigationFlow.present(builder.makeReaderViewController(post: post), animated: true)
         case let .showAlert(error):
-            //renderer?.alert(error) // trocar por modal
+            modalFlow.present(UIAlertController.make(using: error), animated: true)
             break
         case .closePost:
             delegate?.show(context: .placeholder(.loading))

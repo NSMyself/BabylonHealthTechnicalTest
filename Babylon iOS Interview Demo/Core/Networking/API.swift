@@ -16,7 +16,8 @@ final class API {
     enum Error: Swift.Error {
         case error(Swift.Error?)
         case invalidData
-        case unknown
+        case invalidResponse
+        case invalidURL
     }
     
     private let session: URLSession
@@ -30,7 +31,7 @@ final class API {
         return SignalProducer { [session] observer, lifetime in
      
             guard let request = URLRequest(from: apiRequest) else {
-                observer.send(error: .unknown)
+                observer.send(error: .invalidURL)
                 return
             }
             
@@ -47,7 +48,7 @@ final class API {
                 }
                 
                 guard let urlResponse = urlResponse else {
-                    observer.send(error: .unknown)
+                    observer.send(error: .invalidResponse)
                     return
                 }
                 

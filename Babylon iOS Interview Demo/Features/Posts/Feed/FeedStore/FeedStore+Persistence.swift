@@ -49,8 +49,14 @@ extension FeedStore {
         
         func fetch(resource: Endpoint.Resource) -> SignalProducer<[Post], FeedStore.Error> {
             
-            return SignalProducer<[Post], FeedStore.Error> { lifetime, observer in
-                // CENAS
+            return SignalProducer<[Post], FeedStore.Error> { [weak self] observer, lifetime in
+                
+                guard let posts:[Post] = self?.decode(data: self?.loadFromDisk()) else {
+                    observer.send(error: FeedStore.Error.databaseError)
+                    return
+                }
+                
+                observer.send(value: posts)
             }
         }
         
@@ -80,11 +86,23 @@ extension FeedStore.Persistence {
             return nil
         }
         
-        let filename = "posts"
-        return FileManager.default.contents(atPath: documentDirectory.appendingPathComponent("\(filename).data").absoluteString)
+        do {
+            return try Data(contentsOf: documentDirectory.appendingPathComponent("posts.data").absoluteURL)
+        }
+        catch {
+            PersistenceError.decodeFailure.log()
+        }
+        
+        return nil
     }
     
-    private  func decode<T: Decodable>(data: Data) -> T? {
+    private  func decode<T: Decodable>(data: Data?) -> T? {
+        
+        guard let data = data else {
+            PersistenceError.readFailure.log()
+            return nil
+        }
+        
         do {
             return try JSONDecoder().decode(T.self, from: data)
         } catch {
@@ -136,7 +154,6 @@ extension FeedStore.Persistence {
             }
             
             try payload.write(to: documentDirectory.appendingPathComponent("\(filename).data"), atomically: true, encoding: .utf8)
-            print("Wrote some stuff to \(documentDirectory.appendingPathComponent("\(filename).data").absoluteString)")
         }
         catch {
             PersistenceError.writeFailure.log()
