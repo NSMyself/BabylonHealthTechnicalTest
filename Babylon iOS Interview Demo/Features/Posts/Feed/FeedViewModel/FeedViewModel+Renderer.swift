@@ -9,7 +9,6 @@
 import Bento
 import BentoKit
 import ReactiveSwift
-import StyleSheets
 import UIKit
 
 typealias Context = FeedViewModel.Renderer.Context
@@ -40,7 +39,7 @@ extension FeedViewModel {
                 return [RowId.noData <> PlaceholderComponent()]
             }
             
-            return posts.map { post -> Node<RowId> in
+/*            return posts.map { post -> Node<RowId> in
                 return RowId.post(post) <> Component.Description(
                     text: post.title,
                     accessoryIcon: nil,
@@ -49,6 +48,16 @@ extension FeedViewModel {
                     },
                     styleSheet: Component.Description.StyleSheet()
                         .compose(\.backgroundColor, UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0))
+                )*/
+            
+            return posts.map { post -> Node<RowId> in
+                
+                return RowId.post(post) <> PostComponent(
+                    title: post.title,
+                    body: "olarecas",
+                    didTap: { [weak self] in
+                        self?.tapObserver.send(value: .didSelect(postId: post.id.rawValue))
+                    }
                 )
             }
         }

@@ -6,6 +6,14 @@
 //  Copyright © 2019 NSMyself. All rights reserved.
 //
 
-import Foundation
+import Tagged
 
-struct Comment: Codable {}
+struct Comment: Codable, Hashable {
+    let postId: Post.Id?
+    let id: Id
+    let name: String
+    let email: String
+    let body: String
+    
+    typealias Id = Tagged<Comment, Int>
+}

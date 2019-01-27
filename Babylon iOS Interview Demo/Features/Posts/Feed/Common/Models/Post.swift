@@ -11,9 +11,10 @@ import Tagged
 
 public struct Post: Codable, Hashable {
     let id: Id
-    let userId: Int
+    let userId: User.Id
     let title: String
     let body: String
     
     typealias Id = Tagged<Post, Int>
+    typealias UserId = Tagged<User, Int>
 }

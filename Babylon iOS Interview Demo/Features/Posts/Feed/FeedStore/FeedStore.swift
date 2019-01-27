@@ -22,15 +22,33 @@ final class FeedStore {
     private let network = FeedStore.Network()
     
     private let posts = MutableProperty<[Post]>([])
-
+    private let users = MutableProperty<[User]>([])
+    private let comments = MutableProperty<[Comment]>([])
+    
     init() {
         posts
             .producer
             .skipRepeats()
             .filter { $0.count > 0 }
-            .startWithValues { [persistence] feed in
-                persistence.store(posts: feed)
+            .startWithValues { [persistence] items in
+                persistence.store(posts: items)
             }
+        
+        users
+            .producer
+            .skipRepeats()
+            .filter { $0.count > 0 }
+            .startWithValues { [persistence] items in
+                persistence.store(users: items)
+        }
+        
+        comments
+            .producer
+            .skipRepeats()
+            .filter { $0.count > 0 }
+            .startWithValues { [persistence] feed in
+                persistence.store(comments: feed)
+        }
     }
     
     func loadPosts() -> SignalProducer<[Post], FeedStore.Error> {

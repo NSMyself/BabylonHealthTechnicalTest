@@ -13,9 +13,10 @@ extension NSAttributedString {
         let attributedString = NSMutableAttributedString(string: title)
         
         let attributes0: [NSAttributedString.Key : Any] = [
-            .font: UIFont(name: "HelveticaNeue-Bold", size: 13)!
+            .font: UIFont.systemFont(ofSize: 13)
         ]
-        attributedString.addAttributes(attributes0, range: NSRange(location: 0, length: 10))
+        
+        attributedString.addAttributes(attributes0, range: NSRange(location: 0, length: title.count))
         
         return attributedString
     }

@@ -7,12 +7,11 @@
 //
 
 import UIKit
+import BentoKit
 
-final class PostCell: UIView {
+final class PostCell: InteractiveView {
     
-    private let labelPadding: CGFloat = 8
-    var id: Int = -1
-    var didTap: ((Int) -> Void)?
+    private let labelPadding: CGFloat = 4
     
     let titleLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -28,6 +27,12 @@ final class PostCell: UIView {
         return $0
     }(UILabel())
     
+    var didTap: (() -> Void)? {
+        didSet {
+            highlightingGesture.didTap = didTap.map(HighlightingGesture.TapAction.resign)
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -35,7 +40,6 @@ final class PostCell: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLabels()
-        setupTapGesture()
     }
     
     private func setupLabels() {
@@ -54,13 +58,5 @@ final class PostCell: UIView {
             ])
         
         isUserInteractionEnabled = true
-    }
-    
-    private func setupTapGesture() {
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapped(gestureRecognizer:))))
-    }
-    
-    @objc private func tapped(gestureRecognizer: UITapGestureRecognizer) {
-        didTap?(id)
     }
 }

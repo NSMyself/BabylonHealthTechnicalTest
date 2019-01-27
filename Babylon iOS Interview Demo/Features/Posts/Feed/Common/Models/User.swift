@@ -6,6 +6,14 @@
 //  Copyright © 2019 NSMyself. All rights reserved.
 //
 
-import Foundation
+import Tagged
 
-struct User: Codable {}
+struct User: Codable, Hashable {
+    let id: Id
+    let username: String
+    let name: String
+    let email: Email
+    
+    typealias Id = Tagged<User, Int>
+    typealias Email = Tagged<User, String>
+}
