@@ -8,12 +8,9 @@
 
 import UIKit
 
-struct AboutMeBuilder: Buildable {
+struct AboutMeBuilder {
     
-    typealias T = UINavigationController
-    
-    func make() -> T {
-        let vc = AboutMeViewController()
-        return UINavigationController(rootViewController: vc)
+    func make() -> UINavigationController {
+        return UINavigationController(rootViewController: AboutMeViewController())
     }
 }

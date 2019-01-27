@@ -22,7 +22,6 @@ class ReaderViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        view.backgroundColor = .yellow
         super.viewDidLoad()
     }
     

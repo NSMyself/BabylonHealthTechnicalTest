@@ -63,6 +63,7 @@ extension FeedViewModel {
     
     private static func loadingFeedback(using store: FeedStore)  -> Feedback<State, FeedViewModel.Event> {
         return Feedback { state -> SignalProducer<Event, NoError> in
+           
             guard case .loading = state else { return .empty }
             
             return store.loadPosts()

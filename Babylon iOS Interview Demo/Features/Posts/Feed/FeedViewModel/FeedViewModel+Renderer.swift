@@ -39,17 +39,6 @@ extension FeedViewModel {
                 return [RowId.noData <> PlaceholderComponent()]
             }
             
-/*            return posts.map { post -> Node<RowId> in
-                return RowId.post(post) <> Component.Description(
-                    text: post.title,
-                    accessoryIcon: nil,
-                    didTap: { [weak self] in
-                        self?.tapObserver.send(value: .didSelect(postId: post.id.rawValue))
-                    },
-                    styleSheet: Component.Description.StyleSheet()
-                        .compose(\.backgroundColor, UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0))
-                )*/
-            
             return posts.map { post -> Node<RowId> in
                 
                 return RowId.post(post) <> PostComponent(
