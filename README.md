@@ -38,6 +38,10 @@ Just clone the repository, run `pod install` and you're all set.
 #### Architecture:
 I'm aware that you're not using "vanilla" FlowCoordinators; I tried to learn as much as I could about your architecture using [conference talks](https://www.youtube.com/watch?v=szUK4kuFts8) and [blog posts](https://ilya.puchka.me/implementing-features-with-reactivefeedback/). I think the outcome was quite good but I'm also aware that I may have missed some details. Nevertheless, I became a fan of Flow Controllers and will be using this approach in the future.
 
+#### Persistence layer:
+I decided to go with a regular FileManager implementation because it was simpler and, for the purposes of this test, more than enough.
+However, I ended up spending a bit more time than I had originally antecipated due to JSONEncode/Decode's limitations. I wanted to unify the encoding/decoding processes but it wasn't entirely possible during this timeframe because it required that all objects were of the same type. Ideally, it would accept objects conforming to a particular protocol but alas ¯\_(ツ)_/¯
+
 ### Weak spots:
 #### ReactiveFeedback.
 To be entirely honest, I am not 100% happy with my implementation of ReactiveFeedback. I tried to add a retry button to the UIAlertController that pops up whenever a user doesn't have network connectivity (and tried to load the post feed) but I was unable to get it working in the current timeframe; the same goes for a loading screen.
