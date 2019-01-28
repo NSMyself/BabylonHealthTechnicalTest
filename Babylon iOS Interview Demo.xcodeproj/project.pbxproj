@@ -28,6 +28,9 @@
 		5951A99C21FBE0F1009D0484 /* AttributedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951A99B21FBE0F1009D0484 /* AttributedStrings.swift */; };
 		595732DD21FE1522009DF363 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595732DC21FE1522009DF363 /* Resource.swift */; };
 		595732E121FE6969009DF363 /* ReaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595732E021FE6969009DF363 /* ReaderViewModel.swift */; };
+		595732E321FF4067009DF363 /* FeedStore+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595732E221FF4067009DF363 /* FeedStore+Error.swift */; };
+		595732E521FF41BA009DF363 /* API+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595732E421FF41BA009DF363 /* API+Error.swift */; };
+		595732E721FF43DD009DF363 /* Error+AreEqual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595732E621FF43DD009DF363 /* Error+AreEqual.swift */; };
 		59A5009021F7762700DF68E6 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5008F21F7762700DF68E6 /* RootBuilder.swift */; };
 		59A5009221F77A7900DF68E6 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5009121F77A7900DF68E6 /* RootViewController.swift */; };
 		59A5009421F77A9700DF68E6 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5009321F77A9700DF68E6 /* RootViewModel.swift */; };
@@ -110,6 +113,9 @@
 		5951A99B21FBE0F1009D0484 /* AttributedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStrings.swift; sourceTree = "<group>"; };
 		595732DC21FE1522009DF363 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		595732E021FE6969009DF363 /* ReaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewModel.swift; sourceTree = "<group>"; };
+		595732E221FF4067009DF363 /* FeedStore+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedStore+Error.swift"; sourceTree = "<group>"; };
+		595732E421FF41BA009DF363 /* API+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Error.swift"; sourceTree = "<group>"; };
+		595732E621FF43DD009DF363 /* Error+AreEqual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+AreEqual.swift"; sourceTree = "<group>"; };
 		59A5008F21F7762700DF68E6 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
 		59A5009121F77A7900DF68E6 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		59A5009321F77A9700DF68E6 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
@@ -311,6 +317,7 @@
 				59DB653221FC9257001C0379 /* HttpMethod.swift */,
 				59DB652E21FC8DF6001C0379 /* JSONDictionary.swift */,
 				59DB653821FCA73A001C0379 /* Requestable.swift */,
+				595732E421FF41BA009DF363 /* API+Error.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -392,6 +399,7 @@
 				59ADB35C21FA239200C72527 /* FeedStore.swift */,
 				59DB654321FCD8E5001C0379 /* FeedStore+Persistence.swift */,
 				59DB655121FD207C001C0379 /* FeedStore+Network.swift */,
+				595732E221FF4067009DF363 /* FeedStore+Error.swift */,
 			);
 			path = FeedStore;
 			sourceTree = "<group>";
@@ -493,6 +501,7 @@
 				59DB654D21FD188D001C0379 /* OSLog+Subsystem.swift */,
 				59DB655D21FDBA00001C0379 /* UIAlertController+makeError.swift */,
 				59DB655F21FDBC6B001C0379 /* String+localized.swift */,
+				595732E621FF43DD009DF363 /* Error+AreEqual.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -743,6 +752,8 @@
 			files = (
 				5951A98721FB6890009D0484 /* PostComponent.swift in Sources */,
 				59DB653B21FCA74A001C0379 /* APIRequest.swift in Sources */,
+				595732E321FF4067009DF363 /* FeedStore+Error.swift in Sources */,
+				595732E721FF43DD009DF363 /* Error+AreEqual.swift in Sources */,
 				59F195DD21F9D7AE009E744A /* FeedViewModel+CoreConcepts.swift in Sources */,
 				59DB655621FD9C43001C0379 /* Comment.swift in Sources */,
 				5951A99921FBD717009D0484 /* Right Arrow.swift in Sources */,
@@ -755,6 +766,7 @@
 				595732E121FE6969009DF363 /* ReaderViewModel.swift in Sources */,
 				59DB655C21FDAE63001C0379 /* Curry.swift in Sources */,
 				59F1548321F600D40062FD19 /* UIViewController+Flow.swift in Sources */,
+				595732E521FF41BA009DF363 /* API+Error.swift in Sources */,
 				5951A97021FB352C009D0484 /* FeedRenderDelegate.swift in Sources */,
 				59A5009021F7762700DF68E6 /* RootBuilder.swift in Sources */,
 				59A5009721F77EC600DF68E6 /* TabRoute.swift in Sources */,

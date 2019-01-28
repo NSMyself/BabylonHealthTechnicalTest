@@ -6,41 +6,22 @@
 //  Copyright © 2019 NSMyself. All rights reserved.
 //
 
-import Foundation
 import ReactiveSwift
-import os.log
 
-extension FeedStore {
+public typealias PersistenceError = FeedStore.Persistence.Error
+
+public extension FeedStore {
     
-    final class Persistence {
+    public final class Persistence {
         
-        enum PersistenceError: Swift.Error, Loggable {
-            case documentDirectoryNotFound
-            case noObjectsToStore
-            case writeFailure
-            case readFailure
-            case encodeFailure
-            case decodeFailure
-            case nullDataToEncode
-            
-            func log() {
-                switch(self) {
-                case .documentDirectoryNotFound:
-                    os_log("💥 Persistence error: Document directory not found", log: OSLog.storage, type: .error)
-                case .writeFailure:
-                    os_log("💥 Persistence error: Could not write to disk", log: OSLog.storage, type: .error)
-                case .readFailure:
-                    os_log("💥 Persistence error: Could not read data from disk", log: OSLog.storage, type: .error)
-                case .encodeFailure:
-                    os_log("💥 Persistence error: Could not serialize data", log: OSLog.storage, type: .error)
-                case .decodeFailure:
-                    os_log("💥 Persistence error: Could not decode objects from data", log: OSLog.storage, type: .error)
-                case .noObjectsToStore:
-                    os_log("💥 Persistence error: No objects to be stored", log: OSLog.storage, type: .error)
-                case .nullDataToEncode:
-                    os_log("💥 Persistence error: Trying to write null data to disk", log: OSLog.storage, type: .error)
-                }
-            }
+        public enum Error: String {
+            case documentDirectoryNotFound =  "Document directory not found"
+            case noObjectsToStore = "No objects to store"
+            case writeFailure = "Could not write to disk"
+            case readFailure = "Could not read data from disk"
+            case encodeFailure = "Could not encode objects"
+            case decodeFailure = "Could not decode objects"
+            case nullDataToEncode = "Trying to write null data to disk"
         }
     }
 }
@@ -50,6 +31,14 @@ extension FeedStore.Persistence {
     func fetchPosts() -> SignalProducer<[Post], FeedStore.Error> {
         
         return SignalProducer<[Post], FeedStore.Error> { [weak self] observer, lifetime in
+            
+            guard let data = self?.loadFromDisk() else {
+                observer.send(error: FeedStoreError.persistence(.readFailure))
+            }
+            
+            guard let posts = self?.decode(data: data) else {
+                observer.send(error: FeedStoreError.persistence(.readFailure))
+            }
             
             guard let posts:[Post] = self?.decode(data: self?.loadFromDisk()) else {
                 observer.send(error: FeedStore.Error.databaseError)
@@ -61,6 +50,11 @@ extension FeedStore.Persistence {
     }
     
     func fetchUsers() -> SignalProducer<[User], FeedStore.Error> {
+        
+        
+        
+        
+        
         
         return SignalProducer<[User], FeedStore.Error> { [weak self] observer, lifetime in
             

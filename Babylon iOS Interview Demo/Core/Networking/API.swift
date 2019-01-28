@@ -9,16 +9,7 @@
 import Foundation
 import ReactiveSwift
 
-typealias APIError = API.Error
-
-final class API {
-    
-    enum Error: Swift.Error {
-        case error(Swift.Error?)
-        case invalidData
-        case invalidResponse
-        case invalidURL
-    }
+public final class API {
     
     private let session: URLSession
     
@@ -36,9 +27,14 @@ final class API {
             }
             
             let dataTask = session.dataTask(with: request) { data, urlResponse, error in
-                    
+                
                 guard error == nil else {
-                    observer.send(error: APIError.error(error))
+                    
+                    guard let error = error else {
+                        fatalError("Will never happen; just avoiding force-unwrapping")
+                    }
+                    
+                    observer.send(error: .error(error))
                     return
                 }
                 

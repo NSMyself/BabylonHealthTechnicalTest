@@ -6,9 +6,9 @@
 //  Copyright © 2019 NSMyself. All rights reserved.
 //
 
-import Foundation
 import ReactiveSwift
-import os.log
+
+public typealias NetworkError = APIError
 
 extension FeedStore {
     
@@ -19,7 +19,7 @@ extension FeedStore {
                 .fetch(with: APIRequest(endpoint: .init(resource: .posts)))
                 .retry(upTo: 3)
                 .flatMap(.latest, Parser<[Post]>().transform)
-                .mapError { _ in FeedStore.Error.networkError }
+                .mapError { error in FeedStore.Error.network(error) }
         }
         
         func fetchComments() -> SignalProducer<[Comment], FeedStore.Error> {
@@ -27,7 +27,7 @@ extension FeedStore {
                 .fetch(with: APIRequest(endpoint: .init(resource: .comments)))
                 .retry(upTo: 3)
                 .flatMap(.latest, Parser<[Comment]>().transform)
-                .mapError { _ in FeedStore.Error.networkError }
+                .mapError { error in FeedStore.Error.network(error) }
         }
         
         func fetchUsers() -> SignalProducer<[User], FeedStore.Error> {
@@ -35,7 +35,7 @@ extension FeedStore {
                 .fetch(with: APIRequest(endpoint: .init(resource: .users)))
                 .retry(upTo: 3)
                 .flatMap(.latest, Parser<[User]>().transform)
-                .mapError { _ in FeedStore.Error.networkError }
+                .mapError { error in FeedStore.Error.network(error) }
         }
     }
 }

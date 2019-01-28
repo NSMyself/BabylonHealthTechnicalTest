@@ -9,15 +9,9 @@
 import Foundation
 import ReactiveSwift
 import Result
+import os.log
 
-final class FeedStore {
-    
-    enum Error: Swift.Error, Loggable {
-        case networkError
-        case databaseError
-        case noUserId
-        func log() {}
-    }
+public final class FeedStore {
     
     private let persistence = FeedStore.Persistence()
     private let network = FeedStore.Network()

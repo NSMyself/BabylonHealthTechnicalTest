@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol LogRepresentable {
+    var rawValue: String { get }
+}
+
 protocol Loggable {
     func log()
 }

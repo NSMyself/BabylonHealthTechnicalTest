@@ -10,7 +10,7 @@ import ReactiveSwift
 
 extension FeedViewModel {
     
-    enum State: Equatable {
+    enum State: Equatable {        
         case loading
         case loaded([Post], FeedStore.Error?)
         case loadingFailed(FeedStore.Error)

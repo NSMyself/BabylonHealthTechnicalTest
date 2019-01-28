@@ -31,14 +31,7 @@ final class AboutMeViewController: UIViewController {
         $0.font = .systemFont(ofSize: 14)
         return $0
     }(UILabel())
-    
-    let dependenciesLabel: UILabel = {
-        $0.text = "cheers".localized
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.font = .boldSystemFont(ofSize: 20)
-        return $0
-    }(UILabel())
-    
+
     let authorLabel: UILabel = {
         $0.text = "João Pereira"
         $0.translatesAutoresizingMaskIntoConstraints = false
