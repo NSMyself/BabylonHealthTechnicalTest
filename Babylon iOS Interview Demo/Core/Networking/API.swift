@@ -53,7 +53,7 @@ public final class API {
             }
             
             dataTask.resume()
-            lifetime.observeEnded { dataTask.cancel() }
+            lifetime.observeEnded(dataTask.cancel)
         }
     }
 }
