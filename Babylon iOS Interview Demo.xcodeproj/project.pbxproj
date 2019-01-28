@@ -90,7 +90,7 @@
 
 /* Begin PBXFileReference section */
 		591B281221F61AC300EACE47 /* UINavigationController+Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Flow.swift"; sourceTree = "<group>"; };
-		5947443C21F1E8DE00BDE970 /* Babylon iOS Interview Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Babylon iOS Interview Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5947443C21F1E8DE00BDE970 /* Tech Test .app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tech Test .app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5947443F21F1E8DE00BDE970 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5947444621F1E8DF00BDE970 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5947444921F1E8DF00BDE970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 		5947443D21F1E8DE00BDE970 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5947443C21F1E8DE00BDE970 /* Babylon iOS Interview Demo.app */,
+				5947443C21F1E8DE00BDE970 /* Tech Test .app */,
 				5947445021F1E8DF00BDE970 /* Babylon iOS Interview DemoTests.xctest */,
 			);
 			name = Products;
@@ -563,9 +563,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5947443B21F1E8DE00BDE970 /* Babylon iOS Interview Demo */ = {
+		5947443B21F1E8DE00BDE970 /* Tech Test  */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5947445921F1E8DF00BDE970 /* Build configuration list for PBXNativeTarget "Babylon iOS Interview Demo" */;
+			buildConfigurationList = 5947445921F1E8DF00BDE970 /* Build configuration list for PBXNativeTarget "Tech Test " */;
 			buildPhases = (
 				03F383DDF0B1AF9A6148641D /* [CP] Check Pods Manifest.lock */,
 				5947443821F1E8DE00BDE970 /* Sources */,
@@ -577,9 +577,9 @@
 			);
 			dependencies = (
 			);
-			name = "Babylon iOS Interview Demo";
+			name = "Tech Test ";
 			productName = "Babylon iOS Interview Demo";
-			productReference = 5947443C21F1E8DE00BDE970 /* Babylon iOS Interview Demo.app */;
+			productReference = 5947443C21F1E8DE00BDE970 /* Tech Test .app */;
 			productType = "com.apple.product-type.application";
 		};
 		5947444F21F1E8DF00BDE970 /* Babylon iOS Interview DemoTests */ = {
@@ -634,7 +634,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5947443B21F1E8DE00BDE970 /* Babylon iOS Interview Demo */,
+				5947443B21F1E8DE00BDE970 /* Tech Test  */,
 				5947444F21F1E8DF00BDE970 /* Babylon iOS Interview DemoTests */,
 			);
 		};
@@ -829,7 +829,7 @@
 /* Begin PBXTargetDependency section */
 		5947445221F1E8DF00BDE970 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5947443B21F1E8DE00BDE970 /* Babylon iOS Interview Demo */;
+			target = 5947443B21F1E8DE00BDE970 /* Tech Test  */;
 			targetProxy = 5947445121F1E8DF00BDE970 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1069,7 +1069,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5947445921F1E8DF00BDE970 /* Build configuration list for PBXNativeTarget "Babylon iOS Interview Demo" */ = {
+		5947445921F1E8DF00BDE970 /* Build configuration list for PBXNativeTarget "Tech Test " */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5947445A21F1E8DF00BDE970 /* Debug */,
