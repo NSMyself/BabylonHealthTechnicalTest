@@ -16,13 +16,13 @@ public struct APIRequest: Requestable {
         case withEncodable(Encodable)
     }
     
-    public let endpoint: Endpoint
-    public let method: HttpMethod<Data>
-    public let contentType: String
-    public let kind: APIRequest.Kind
-    public let headers: [String: String]
-    public let timeoutInterval: TimeInterval
-    public let cachePolicy: URLRequest.CachePolicy
+    let endpoint: Endpoint
+    let method: HttpMethod<Data>
+    let contentType: String
+    let kind: APIRequest.Kind
+    let headers: [String: String]
+    let timeoutInterval: TimeInterval
+    let cachePolicy: URLRequest.CachePolicy
     
     init(endpoint: Endpoint,
          method: HttpMethod<Data> = .get,

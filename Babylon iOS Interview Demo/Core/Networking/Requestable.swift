@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol Requestable {
+protocol Requestable {
     var endpoint: Endpoint { get }
     var contentType: String { get }
     var kind: APIRequest.Kind { get }
