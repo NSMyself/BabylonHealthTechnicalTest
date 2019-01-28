@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import ReactiveSwift
 
 final class ReaderViewController: UIViewController {
     
     let viewModel: ReaderViewModel
     private let padding: CGFloat = 8
+    private let widthRatio: CGFloat = 0.9
     
     let scrollView: UIScrollView = {
         $0.frame = .zero
@@ -92,20 +94,13 @@ final class ReaderViewController: UIViewController {
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: padding),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -padding*2),
             stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.9)
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: widthRatio)
         ])
         
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.body
-     
-        //getUser()
-        //getComments()
-    }
-    
-    func getUser() {
-        viewModel
-            .loadUser()
-            //.startWithResult { }
+        userLabel.reactive.text <~ viewModel.username.signal
+        commentsLabel.reactive.text <~ viewModel.numberOfComments.signal
     }
     
     override func viewWillDisappear(_ animated: Bool) {

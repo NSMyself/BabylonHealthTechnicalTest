@@ -96,4 +96,15 @@ extension FeedStore {
                 comments.value = feed
             })
     }
+    
+    func loadComments(for postId: Post.Id) -> SignalProducer<[Comment], FeedStore.Error> {
+        return loadComments()
+            .map { comments in comments.filter { $0.postId == postId } }
+    }
+    
+    func loadUser(with userId: User.Id)  -> SignalProducer<User, FeedStore.Error> {
+        return loadUsers()
+            .flatten()
+            .filter { $0.id == userId }
+    }
 }
