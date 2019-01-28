@@ -50,7 +50,7 @@ Additionally, if the user tapped on a post and then went back to the feed I need
 The problem is that there's no direct connection between ReaderViewController (which I'm using to control the post details, aka whenever a user wants to see an expanded post) and FeedViewController -> FeedViewModel -> FeedFlowController+Renderer.
 I was faced with three choices:
 
-1. Pass along a delegate or an observer (which I didn't really because I wanted the builders to be as simple and isolated as possible) and call it / send an event whenever the user went back
+1. Pass along a delegate or an observer (which I didn't really want because I wanted the builders to be as simple and isolated as possible) and call it / send an event whenever the user went back
 
 or
 
