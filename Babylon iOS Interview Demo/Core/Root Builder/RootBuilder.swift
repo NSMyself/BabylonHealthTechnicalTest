@@ -8,12 +8,23 @@
 
 import UIKit
 
-final class RootBuilder {
+public final class RootBuilder {
     
     private weak var window: UIWindow?
     
-    let feedBuilder: FeedBuilder
-    let aboutMeBuilder: AboutMeBuilder
+    private let feedBuilder: FeedBuilder
+    private let aboutMeBuilder: AboutMeBuilder
+    
+    private let tabs: [Tab] = [
+        Tab(
+            route: .posts,
+            item: TabItem(title: "feed_tab_title".localized, image: #imageLiteral(resourceName: "Posts"), selectedImage: #imageLiteral(resourceName: "Posts"))
+        ),
+        Tab(
+            route: .aboutMe,
+            item: TabItem(title: "about_tab_title".localized, image: #imageLiteral(resourceName: "About Me"), selectedImage: #imageLiteral(resourceName: "About Me"))
+        )
+    ]
     
     init(using window: UIWindow?) {
         self.window = window
@@ -22,25 +33,33 @@ final class RootBuilder {
     }
 
     func run() {
-        window?.rootViewController = make(using: self)
+        window?.rootViewController = make()
         window?.makeKeyAndVisible()
     }
 }
 
-extension RootBuilder: RootDelegate {
-
-    func make(using delegate: RootDelegate) -> RootViewController {
-        return RootViewController(using: RootViewModel(delegate: delegate))
+extension RootBuilder {
+    
+    func make() -> RootViewController {
+        return RootViewController(using: RootViewModel(with: tabs.compactMap(build)))
     }
     
-    func build(using tab: TabRoute) -> UIViewController {
+    func build(using tab: Tab) -> UIViewController {
         
-        switch(tab) {
-        case .posts:
-            return feedBuilder.make()
+        func makeNavController() -> UINavigationController {
+            switch(tab.route) {
+            case .posts:
+                return feedBuilder.make()
 
-        case .aboutMe:
-            return aboutMeBuilder.make()
+            case .aboutMe:
+                return aboutMeBuilder.make()
+            }
         }
+        
+        let navigationController = makeNavController()
+        navigationController.viewControllers.first?.tabBarItem = UITabBarItem(with: tab.item)
+        
+        return navigationController
     }
 }
+

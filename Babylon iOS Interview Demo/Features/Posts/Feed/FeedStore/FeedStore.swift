@@ -15,6 +15,7 @@ final class FeedStore {
     enum Error: Swift.Error, Loggable {
         case networkError
         case databaseError
+        case noUserId
         func log() {}
     }
     

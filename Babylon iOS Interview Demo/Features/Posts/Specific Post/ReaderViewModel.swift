@@ -25,5 +25,18 @@ final class ReaderViewModel {
     var body: String {
         return post.body
     }
+    
+    func loadUser() -> SignalProducer<User, FeedStore.Error> {
+        
+        guard let userId = post.userId else {
+            fatalError("FeedStore.Error.noUserId")
+            // TESTAR ISTO
+        }
+        
+        return store
+            .loadUsers()
+            .flatten()
+            .filter { $0.id == userId }
+    }
 }
 

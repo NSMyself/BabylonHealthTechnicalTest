@@ -97,8 +97,15 @@ final class ReaderViewController: UIViewController {
         
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.body
-        userLabel.text = "\("by".localized): Zé Carlos"
-        commentsLabel.text = "\("total_comments".localized): 93393"
+     
+        //getUser()
+        //getComments()
+    }
+    
+    func getUser() {
+        viewModel
+            .loadUser()
+            //.startWithResult { }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
