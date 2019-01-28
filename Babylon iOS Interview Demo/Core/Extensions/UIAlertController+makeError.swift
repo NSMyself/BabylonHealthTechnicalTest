@@ -15,7 +15,7 @@ extension UIAlertController {
                                                  message: error.localizedDescription,
                                                  preferredStyle: .alert)
         
-        let submitAction = UIAlertAction(title:"ok".localized, style: .default) { (action) -> Void in }
+        let submitAction = UIAlertAction(title: "ok".localized, style: .default)
         actionController.addAction(submitAction)
         
         return actionController
