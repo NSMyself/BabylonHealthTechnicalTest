@@ -33,6 +33,7 @@ final class PostCell: InteractiveView {
         }
     }
     
+    @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

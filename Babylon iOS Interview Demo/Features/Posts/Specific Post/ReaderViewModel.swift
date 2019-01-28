@@ -46,7 +46,6 @@ final class ReaderViewModel {
             .loadUser(with: userId)
             .map { "\("by".localized): \($0.name)" }
             .flatMapError { error -> SignalProducer<String, NoError> in
-                print(error.localizedDescription)
                 return SignalProducer.empty
         }
     }
@@ -61,7 +60,6 @@ final class ReaderViewModel {
             }
             .map { "\("total_comments".localized): \($0)" }
             .flatMapError { error -> SignalProducer<String, NoError> in
-                print(error.localizedDescription)
                 return SignalProducer.empty
             }
     }
