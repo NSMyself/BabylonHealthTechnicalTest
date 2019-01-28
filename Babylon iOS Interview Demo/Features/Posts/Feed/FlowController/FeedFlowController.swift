@@ -27,7 +27,7 @@ final class FeedFlowController {
 extension FeedFlowController {
     func handle(_ route: FeedViewModel.Route) {
         switch route {
-        case .showLoading():
+        case .showLoading:
             delegate?.show(context: .placeholder(.loading))
         case let .showFeed(posts):
             delegate?.show(context: .feed(posts))

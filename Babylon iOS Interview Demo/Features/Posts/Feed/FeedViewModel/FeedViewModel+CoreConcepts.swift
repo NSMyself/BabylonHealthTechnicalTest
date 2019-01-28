@@ -31,7 +31,7 @@ extension FeedViewModel {
     }
     
     enum Route {
-        case showLoading()
+        case showLoading
         case showFeed(feed: [Post])
         case showAlert(alert: FeedStore.Error)
         case showPost(_ post: Post)
