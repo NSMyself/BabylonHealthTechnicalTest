@@ -18,6 +18,7 @@ extension FeedStore {
             return API()
                 .fetch(with: APIRequest(endpoint: .init(resource: .posts)))
                 .retry(upTo: 3)
+                .take(first: 1)
                 .flatMap(.latest, Parser<[Post]>().transform)
                 .mapError { error in FeedStore.Error.network(error) }
         }
@@ -26,6 +27,7 @@ extension FeedStore {
             return API()
                 .fetch(with: APIRequest(endpoint: .init(resource: .comments)))
                 .retry(upTo: 3)
+                .take(first: 1)
                 .flatMap(.latest, Parser<[Comment]>().transform)
                 .mapError { error in FeedStore.Error.network(error) }
         }
@@ -34,6 +36,7 @@ extension FeedStore {
             return API()
                 .fetch(with: APIRequest(endpoint: .init(resource: .users)))
                 .retry(upTo: 3)
+                .take(first: 1)
                 .flatMap(.latest, Parser<[User]>().transform)
                 .mapError { error in FeedStore.Error.network(error) }
         }

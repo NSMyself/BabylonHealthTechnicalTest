@@ -7,6 +7,7 @@
 //
 
 import ReactiveSwift
+import os.log
 
 public typealias PersistenceError = FeedStore.Persistence.Error
 
@@ -14,7 +15,7 @@ public extension FeedStore {
     
     public final class Persistence {
         
-        public enum Error: String {
+        public enum Error: String, Swift.Error {
             case documentDirectoryNotFound =  "Document directory not found"
             case noObjectsToStore = "No objects to store"
             case writeFailure = "Could not write to disk"
@@ -22,62 +23,44 @@ public extension FeedStore {
             case encodeFailure = "Could not encode objects"
             case decodeFailure = "Could not decode objects"
             case nullDataToEncode = "Trying to write null data to disk"
+            case nullDataToDecode = "Trying to decode null data"
         }
     }
 }
 
 extension FeedStore.Persistence {
-        
-    func fetchPosts() -> SignalProducer<[Post], FeedStore.Error> {
-        
-        return SignalProducer<[Post], FeedStore.Error> { [weak self] observer, lifetime in
-            
-            guard let data = self?.loadFromDisk() else {
-                observer.send(error: FeedStoreError.persistence(.readFailure))
-            }
-            
-            guard let posts = self?.decode(data: data) else {
-                observer.send(error: FeedStoreError.persistence(.readFailure))
-            }
-            
-            guard let posts:[Post] = self?.decode(data: self?.loadFromDisk()) else {
-                observer.send(error: FeedStore.Error.databaseError)
-                return
-            }
-            
-            observer.send(value: posts)
-        }
+ 
+    // Unfortunately, I did not have enough time to build a unified fetch data transformation pipeline using function composition
+    // It's a pity because we could avoid a lot of boilerplate...
+    func fetchPosts() -> SignalProducer<[Post], PersistenceError> {
+    
+        return (Resource.posts.rawValue |> loadFromDisk)
+            .map { [unowned self] data in data |> self.decodePosts }
+            .flatten(.latest)
+            .on(failed: { error in
+                FeedStoreError.persistence(error).log()
+            })
     }
     
-    func fetchUsers() -> SignalProducer<[User], FeedStore.Error> {
+    
+    func fetchUsers() -> SignalProducer<[User], PersistenceError> {
         
-        
-        
-        
-        
-        
-        return SignalProducer<[User], FeedStore.Error> { [weak self] observer, lifetime in
-            
-            guard let posts:[User] = self?.decode(data: self?.loadFromDisk()) else {
-                observer.send(error: FeedStore.Error.databaseError)
-                return
-            }
-            
-            observer.send(value: posts)
-        }
+        return (Resource.users.rawValue |> loadFromDisk)
+            .map { [unowned self] data in data |> self.decodeUsers }
+            .flatten(.latest)
+            .on(failed: { error in
+                FeedStoreError.persistence(error).log()
+            })
     }
     
-    func fetchComments() -> SignalProducer<[Comment], FeedStore.Error> {
+    func fetchComments() -> SignalProducer<[Comment], PersistenceError> {
         
-        return SignalProducer<[Comment], FeedStore.Error> { [weak self] observer, lifetime in
-            
-            guard let posts:[Comment] = self?.decode(data: self?.loadFromDisk()) else {
-                observer.send(error: FeedStore.Error.databaseError)
-                return
-            }
-            
-            observer.send(value: posts)
-        }
+        return (Resource.comments.rawValue |> loadFromDisk)
+            .map { [unowned self] data in data |> self.decodeComments }
+            .flatten(.latest)
+            .on(failed: { error in
+                FeedStoreError.persistence(error).log()
+            })
     }
 }
 
@@ -101,84 +84,111 @@ extension FeedStore.Persistence {
 
 extension FeedStore.Persistence {
     
-    private func loadFromDisk() -> Data? {
+    private func loadFromDisk(filename: String) -> SignalProducer<Data, PersistenceError> {
         
-        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            PersistenceError.documentDirectoryNotFound.log()
-            return nil
-        }
+        return SignalProducer<Data, PersistenceError> { observer, lifetime in
         
-        do {
-            return try Data(contentsOf: documentDirectory.appendingPathComponent("posts.data").absoluteURL)
+            guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+                observer.send(error: .documentDirectoryNotFound)
+                return
+            }
+            
+            guard let data = try? Data(contentsOf: documentDirectory.appendingPathComponent("\(filename).data").absoluteURL) else {
+                observer.send(error: .nullDataToDecode)
+                return
+            }
+            
+            observer.send(value: data)
         }
-        catch {
-            PersistenceError.decodeFailure.log()
-        }
-        
-        return nil
     }
     
-    private  func decode<T: Decodable>(data: Data?) -> T? {
-        
-        guard let data = data else {
-            PersistenceError.readFailure.log()
-            return nil
+    private  func decodePosts(data: Data) -> SignalProducer<[Post], PersistenceError> {
+        return SignalProducer<[Post], PersistenceError> { observer, lifetime in
+            guard let objects = try? JSONDecoder().decode([Post].self, from: data) else {
+                observer.send(error: .decodeFailure)
+                return
+            }
+            
+            observer.send(value: objects)
         }
-        
-        do {
-            return try JSONDecoder().decode(T.self, from: data)
-        } catch {
-            PersistenceError.decodeFailure.log()
+    }
+    
+    private  func decodeUsers(data: Data) -> SignalProducer<[User], PersistenceError> {
+        return SignalProducer<[User], PersistenceError> { observer, lifetime in
+            guard let objects = try? JSONDecoder().decode([User].self, from: data) else {
+                observer.send(error: .decodeFailure)
+                return
+            }
+            
+            observer.send(value: objects)
         }
-        
-        return nil
+    }
+    
+    private  func decodeComments(data: Data) -> SignalProducer<[Comment], PersistenceError> {
+        return SignalProducer<[Comment], PersistenceError> { observer, lifetime in
+            guard let objects = try? JSONDecoder().decode([Comment].self, from: data) else {
+                observer.send(error: .decodeFailure)
+                return
+            }
+            
+            observer.send(value: objects)
+        }
     }
 }
 
 extension FeedStore.Persistence {
     
-    private func encode<T: Encodable>(items: T) -> String? {
-        
+    private func encode<T: Encodable>(_ items: T) -> String? {
         let encoder = JSONEncoder()
         
-        do {
-            let data = try encoder.encode(items)
-            return String(data: data, encoding: .utf8)
-        }
-        catch {
-            PersistenceError.encodeFailure.log()
+        guard let data = try? encoder.encode(items) else {
+            return nil
         }
         
-        return nil
+        return String(data: data, encoding: .utf8)
+    }
+    
+    private func encode<T: Encodable>(items: T) -> SignalProducer<String?, PersistenceError> {
+        return SignalProducer<String?, PersistenceError> { [weak self] observer, lifetime in
+            
+            guard let encoded = self?.encode(items) else {
+                observer.send(error: PersistenceError.encodeFailure)
+                return
+            }
+            
+            observer.send(value: encoded)
+        }
     }
     
     private func storeToDisk(posts: String?) {
-        storeToDisk(payload: posts, filename: "posts")
+        storeToDisk(payload: posts, prefix: "posts")
     }
     
     private func storeToDisk(users: String?) {
-        storeToDisk(payload: users, filename: "comments")
+        storeToDisk(payload: users, prefix: "users")
     }
     private func storeToDisk(comments: String?) {
-        storeToDisk(payload: comments, filename: "comments")
+        storeToDisk(payload: comments, prefix: "comments")
     }
     
-    private func storeToDisk(payload: String?, filename: String) {
+    private func storeToDisk(payload: String?, prefix: String) {
         do {
             guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-                PersistenceError.documentDirectoryNotFound.log()
+                FeedStoreError.persistence(.documentDirectoryNotFound).log()
                 return
             }
             
             guard let payload = payload else {
-                PersistenceError.nullDataToEncode.log()
+                FeedStoreError.persistence(.nullDataToEncode).log()
                 return
             }
             
-            try payload.write(to: documentDirectory.appendingPathComponent("\(filename).data"), atomically: true, encoding: .utf8)
+            let filename = documentDirectory.appendingPathComponent("\(prefix).data")
+            try payload.write(to: filename, atomically: true, encoding: .utf8)
+            os_log("✅ Successfully stored data to: %@", log: OSLog.storage, type: .info, filename.absoluteString)
         }
         catch {
-            PersistenceError.writeFailure.log()
+            FeedStoreError.persistence(.writeFailure).log()
         }
     }
 }
@@ -187,7 +197,7 @@ extension FeedStore.Persistence {
     
     fileprivate func validate<T>(_ objects: [T]) -> Bool {
         guard objects.count > 0 else {
-            PersistenceError.noObjectsToStore.log()
+            FeedStoreError.persistence(.noObjectsToStore).log()
             return false
         }
         

@@ -58,6 +58,7 @@ extension FeedStore {
         return network
             .fetchPosts()
             .flatMapError { [persistence] _ in persistence.fetchPosts() }
+            .mapError { FeedStoreError.persistence($0) }
             .on(value: { [posts] feed in
                 posts.value = feed
             })
@@ -72,6 +73,7 @@ extension FeedStore {
         return network
             .fetchUsers()
             .flatMapError { [persistence] _ in persistence.fetchUsers() }
+            .mapError { FeedStoreError.persistence($0) }
             .on(value: { [users] feed in
                 users.value = feed
             })
@@ -86,6 +88,7 @@ extension FeedStore {
         return network
             .fetchComments()
             .flatMapError { [persistence] _ in persistence.fetchComments() }
+            .mapError { FeedStoreError.persistence($0) }
             .on(value: { [comments] feed in
                 comments.value = feed
             })

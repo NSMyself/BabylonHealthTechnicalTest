@@ -75,7 +75,7 @@ final class ReaderViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
-        self.title = "post_details".localized
+        self.title = viewModel.title
         
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
@@ -97,8 +97,8 @@ final class ReaderViewController: UIViewController {
             stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: widthRatio)
         ])
         
-        titleLabel.text = viewModel.title
-        descriptionLabel.text = viewModel.body
+        titleLabel.text = viewModel.postTitle
+        descriptionLabel.text = viewModel.postBody
         userLabel.reactive.text <~ viewModel.username.signal
         commentsLabel.reactive.text <~ viewModel.numberOfComments.signal
     }

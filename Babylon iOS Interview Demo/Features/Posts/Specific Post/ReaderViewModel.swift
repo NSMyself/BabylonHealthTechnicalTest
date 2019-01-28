@@ -14,10 +14,14 @@ final class ReaderViewModel {
     private let store: FeedStore
     
     var title: String {
+        return "post_details".localized
+    }
+    
+    var postTitle: String {
         return post.title
     }
     
-    var body: String {
+    var postBody: String {
         return post.body
     }
     
@@ -40,7 +44,6 @@ final class ReaderViewModel {
     func loadUsername(of userId: User.Id) -> SignalProducer<String, NoError> {
         return store
             .loadUser(with: userId)
-            .take(first: 1)
             .map { "\("by".localized): \($0.name)" }
             .flatMapError { error -> SignalProducer<String, NoError> in
                 print(error.localizedDescription)

@@ -22,6 +22,10 @@ final class FeedViewModel {
     let routes: Signal<Route, NoError>
     let box: Property<Box<Renderer.SectionId, Renderer.RowId>>
     
+    var title: String {
+        return "feed_tab_title".localized
+    }
+    
     init(with store: FeedStore) {
         
         self.store = store

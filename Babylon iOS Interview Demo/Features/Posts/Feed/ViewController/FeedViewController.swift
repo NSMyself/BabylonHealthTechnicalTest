@@ -41,7 +41,7 @@ final class FeedViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        self.title = "feed_tab_title".localized
+        self.title = viewModel.title
         view.backgroundColor = .white
         setupUI()
         bind()
