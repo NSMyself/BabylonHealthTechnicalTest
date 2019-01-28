@@ -1031,7 +1031,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Babylon iOS Interview Demo.app/Babylon iOS Interview Demo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tech Test .app/Tech Test ";
 			};
 			name = Debug;
 		};
@@ -1053,7 +1053,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Babylon iOS Interview Demo.app/Babylon iOS Interview Demo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tech Test .app/Tech Test ";
 			};
 			name = Release;
 		};

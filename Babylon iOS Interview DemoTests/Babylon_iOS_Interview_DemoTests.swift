@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Babylon_iOS_Interview_Demo
+@testable import Pods_Babylon_iOS_Interview_Demo
 
 class Babylon_iOS_Interview_DemoTests: XCTestCase {
 
