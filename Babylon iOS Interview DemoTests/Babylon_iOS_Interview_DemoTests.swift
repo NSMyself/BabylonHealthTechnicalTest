@@ -11,11 +11,36 @@ import XCTest
 
 class Babylon_iOS_Interview_DemoTests: XCTestCase {
 
+    let store: FeedStore
+    let reader: ReaderViewModel
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        let test_mockPosts = [
+            Post(id: 1, userId: 1, title: "Mock title", body: "Mock body"),
+            Post(id: 2, userId: 1, title: "Mock title", body: "Mock body"),
+            Post(id: 3, userId: 1, title: "Mock title", body: "Mock body")
+        ]
+
+        let users = [
+            User(id: 1, username: "yog", name: "Yog-Sothoth", email: "yog@outergods.com"),
+            User(id: 2, username: "squid", name: "Cthulhu", email: "cthulhu@greatoldones.com"),
+            User(id: 3, username: "ahtu", name: "Nyarlatothep", email:"crawlingchaos@outergods.com")
+        ]
+        
+        let comments = [
+            Comment(postId: 1, id: 1, name: "Wilbur Whateley", email: "wilbur@telepac.pt", body: "bla bla bla bla")
+        ]
+        
+        self.store = FeedStore(.mock)
+        self.reader = ReaderViewModel(with: test_mockPosts.first!, store: store)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testUsername() {
+            reader
+                .loadUsername(of: 1)
+                .startWithValues { username in
+                    assert(username == "Yog-Sothoth")
+                }
     }
 }

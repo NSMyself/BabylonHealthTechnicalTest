@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5947443B21F1E8DE00BDE970"
-               BuildableName = "Tech Test .app"
-               BlueprintName = "Tech Test "
+               BuildableName = "Tech Test.app"
+               BlueprintName = "Tech Test"
                ReferencedContainer = "container:Babylon iOS Interview Demo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5947443B21F1E8DE00BDE970"
-            BuildableName = "Tech Test .app"
-            BlueprintName = "Tech Test "
+            BuildableName = "Tech Test.app"
+            BlueprintName = "Tech Test"
             ReferencedContainer = "container:Babylon iOS Interview Demo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,8 +66,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5947443B21F1E8DE00BDE970"
-            BuildableName = "Tech Test .app"
-            BlueprintName = "Tech Test "
+            BuildableName = "Tech Test.app"
+            BlueprintName = "Tech Test"
             ReferencedContainer = "container:Babylon iOS Interview Demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -85,8 +85,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5947443B21F1E8DE00BDE970"
-            BuildableName = "Tech Test .app"
-            BlueprintName = "Tech Test "
+            BuildableName = "Tech Test.app"
+            BlueprintName = "Tech Test"
             ReferencedContainer = "container:Babylon iOS Interview Demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

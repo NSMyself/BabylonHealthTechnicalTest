@@ -101,13 +101,4 @@ extension FeedViewModel: FeedRenderDelegate {
             renderer.render(feed: posts)
         }
     }
-    
-    var isReadingPost: Bool {
-        switch state.value {
-        case .showing(post: _):
-            return true
-        default:
-            return false
-        }
-    }
 }

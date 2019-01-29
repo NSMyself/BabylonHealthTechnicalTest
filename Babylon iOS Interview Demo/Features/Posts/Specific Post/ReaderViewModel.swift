@@ -8,7 +8,7 @@
 
 import ReactiveSwift
 
-final class ReaderViewModel {
+public final class ReaderViewModel {
     
     private(set) var post: Post
     private let store: FeedStore
@@ -41,20 +41,22 @@ final class ReaderViewModel {
         numberOfComments <~ loadComments(for: post.id)
     }
     
-    func loadUsername(of userId: User.Id) -> SignalProducer<String, NoError> {
+    public func loadUsername(of userId: User.Id) -> SignalProducer<String, NoError> {
         return store
             .loadUser(with: userId)
+            .take(first: 1)
             .map { "\("by".localized): \($0.name)" }
             .flatMapError { error -> SignalProducer<String, NoError> in
                 return SignalProducer.empty
-        }
+            }
     }
     
-    func loadComments(for postId: Post.Id) -> SignalProducer<String, NoError> {
+    public func loadComments(for postId: Post.Id) -> SignalProducer<String, NoError> {
         return store
             .loadComments(for: postId)
             .take(first: 1)
-            .map { comments in comments
+            .map { comments in
+                comments
                 .filter { $0.postId == postId}
                 .count
             }

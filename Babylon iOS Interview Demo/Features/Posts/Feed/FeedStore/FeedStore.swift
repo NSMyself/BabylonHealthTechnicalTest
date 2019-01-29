@@ -11,6 +11,11 @@ import ReactiveSwift
 import Result
 import os.log
 
+enum Mode {
+    case mock
+    case live
+}
+
 public final class FeedStore {
     
     private let persistence = FeedStore.Persistence()
@@ -20,7 +25,12 @@ public final class FeedStore {
     private let users = MutableProperty<[User]>([])
     private let comments = MutableProperty<[Comment]>([])
     
-    init() {
+    private let mode: Mode
+    
+    init(_ mode: Mode = .live) {
+        
+        self.mode = mode
+        
         posts
             .producer
             .skipRepeats()

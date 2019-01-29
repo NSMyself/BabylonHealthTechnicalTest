@@ -1,9 +1,9 @@
 platform :ios, '10.0'
 
-target 'Babylon iOS Interview Demo' do
+target 'Tech Test' do
   use_frameworks!
 
-  # Pods for Babylon iOS Interview Demo
+  # Pods for Tech Test
      pod 'ReactiveSwift'
      pod 'ReactiveFeedback'
      pod 'Bento', :git => 'git@github.com:Babylonpartners/Bento.git', :branch => 'master'
@@ -13,7 +13,8 @@ target 'Babylon iOS Interview Demo' do
 
   target 'Babylon iOS Interview DemoTests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'ReactiveSwift'
+    pod 'Tagged', '~> 0.2'
   end
 
 end
