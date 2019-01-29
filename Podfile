@@ -1,6 +1,6 @@
 platform :ios, '10.0'
 
-target 'Tech Test' do
+target 'TechTest' do
   use_frameworks!
 
   # Pods for Tech Test
@@ -11,7 +11,7 @@ target 'Tech Test' do
      pod 'StyleSheets', :git => 'git@github.com:Babylonpartners/Bento.git', :branch => 'master'
      pod 'Tagged', '~> 0.2'
 
-  target 'Babylon iOS Interview DemoTests' do
+  target 'TechTestUnitTesting' do
     inherit! :search_paths
     pod 'ReactiveSwift'
     pod 'Tagged', '~> 0.2'

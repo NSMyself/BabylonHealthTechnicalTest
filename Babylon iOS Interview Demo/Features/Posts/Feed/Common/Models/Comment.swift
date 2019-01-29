@@ -15,5 +15,5 @@ public struct Comment: Codable, Hashable {
     let email: String
     let body: String
     
-    typealias Id = Tagged<Comment, Int>
+    public typealias Id = Tagged<Comment, Int>
 }

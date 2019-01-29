@@ -38,7 +38,7 @@ public final class ReaderViewModel {
         self.store = store
         
         username <~ loadUsername(of: userId)
-        numberOfComments <~ loadComments(for: post.id)
+        numberOfComments <~ loadTotalComments(for: post.id)
     }
     
     public func loadUsername(of userId: User.Id) -> SignalProducer<String, NoError> {
@@ -51,7 +51,7 @@ public final class ReaderViewModel {
             }
     }
     
-    public func loadComments(for postId: Post.Id) -> SignalProducer<String, NoError> {
+    public func loadTotalComments(for postId: Post.Id) -> SignalProducer<String, NoError> {
         return store
             .loadComments(for: postId)
             .take(first: 1)

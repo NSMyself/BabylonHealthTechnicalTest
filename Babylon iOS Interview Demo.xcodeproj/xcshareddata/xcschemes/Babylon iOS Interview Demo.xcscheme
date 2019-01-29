@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5947443B21F1E8DE00BDE970"
-               BuildableName = "Tech Test.app"
-               BlueprintName = "Tech Test"
+               BuildableName = "TechTest.app"
+               BlueprintName = "TechTest"
                ReferencedContainer = "container:Babylon iOS Interview Demo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -38,13 +38,23 @@
                ReferencedContainer = "container:Babylon iOS Interview Demo.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "599BE52E21FFDB7600735341"
+               BuildableName = "TechTestUnitTesting.xctest"
+               BlueprintName = "TechTestUnitTesting"
+               ReferencedContainer = "container:Babylon iOS Interview Demo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5947443B21F1E8DE00BDE970"
-            BuildableName = "Tech Test.app"
-            BlueprintName = "Tech Test"
+            BuildableName = "TechTest.app"
+            BlueprintName = "TechTest"
             ReferencedContainer = "container:Babylon iOS Interview Demo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,8 +76,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5947443B21F1E8DE00BDE970"
-            BuildableName = "Tech Test.app"
-            BlueprintName = "Tech Test"
+            BuildableName = "TechTest.app"
+            BlueprintName = "TechTest"
             ReferencedContainer = "container:Babylon iOS Interview Demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -85,8 +95,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5947443B21F1E8DE00BDE970"
-            BuildableName = "Tech Test.app"
-            BlueprintName = "Tech Test"
+            BuildableName = "TechTest.app"
+            BlueprintName = "TechTest"
             ReferencedContainer = "container:Babylon iOS Interview Demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -14,6 +14,6 @@ public struct Post: Codable, Hashable {
     let title: String
     let body: String
     
-    typealias Id = Tagged<Post, Int>
-    typealias UserId = Tagged<User, Int>
+    public typealias Id = Tagged<Post, Int>
+    public typealias UserId = Tagged<User, Int>
 }

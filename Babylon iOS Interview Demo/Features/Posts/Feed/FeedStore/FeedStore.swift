@@ -11,21 +11,16 @@ import ReactiveSwift
 import Result
 import os.log
 
-enum Mode {
-    case mock
-    case live
-}
-
 public final class FeedStore {
     
     private let persistence = FeedStore.Persistence()
     private let network = FeedStore.Network()
     
-    private let posts = MutableProperty<[Post]>([])
-    private let users = MutableProperty<[User]>([])
-    private let comments = MutableProperty<[Comment]>([])
+    fileprivate let posts = MutableProperty<[Post]>([])
+    fileprivate let users = MutableProperty<[User]>([])
+    fileprivate let comments = MutableProperty<[Comment]>([])
     
-    private let mode: Mode
+    public let mode: Mode
     
     init(_ mode: Mode = .live) {
         
@@ -36,6 +31,7 @@ public final class FeedStore {
             .skipRepeats()
             .filter { $0.count > 0 }
             .startWithValues { [persistence] items in
+                guard mode == .live else { return }
                 persistence.store(posts: items)
             }
         
@@ -44,6 +40,7 @@ public final class FeedStore {
             .skipRepeats()
             .filter { $0.count > 0 }
             .startWithValues { [persistence] items in
+                guard mode == .live else { return }
                 persistence.store(users: items)
         }
         
@@ -52,6 +49,7 @@ public final class FeedStore {
             .skipRepeats()
             .filter { $0.count > 0 }
             .startWithValues { [persistence] feed in
+                guard mode == .live else { return }
                 persistence.store(comments: feed)
         }
     }
@@ -113,5 +111,24 @@ extension FeedStore {
         return loadUsers()
             .flatten()
             .filter { $0.id == userId }
+    }
+}
+
+// MARK: - Mock
+extension FeedStore {
+    
+    func inject(mockUsers: [User]) {
+        guard mode == .mock else { return }
+        users.value = mockUsers
+    }
+    
+    func inject(mockPosts: [Post]) {
+        guard mode == .mock else { return }
+        posts.value = mockPosts
+    }
+    
+    func inject(mockComments: [Comment]) {
+        guard mode == .mock else { return }
+        comments.value = mockComments
     }
 }

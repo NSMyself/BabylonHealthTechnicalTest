@@ -14,6 +14,6 @@ public struct User: Codable, Hashable {
     let name: String
     let email: Email
     
-    typealias Id = Tagged<User, Int>
-    typealias Email = Tagged<User, String>
+    public typealias Id = Tagged<User, Int>
+    public typealias Email = Tagged<User, String>
 }
