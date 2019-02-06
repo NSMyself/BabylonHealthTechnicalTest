@@ -729,7 +729,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TechTestUnitTesting/Pods-TechTestUnitTesting-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-TechTestUnitTesting/Pods-TechTestUnitTesting-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/Tagged/Tagged.framework",
@@ -744,7 +744,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TechTestUnitTesting/Pods-TechTestUnitTesting-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TechTestUnitTesting/Pods-TechTestUnitTesting-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BFFB884C53C8B2B936C08D61 /* [CP] Embed Pods Frameworks */ = {
@@ -755,7 +755,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TechTest/Pods-TechTest-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-TechTest/Pods-TechTest-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bento/Bento.framework",
 				"${BUILT_PRODUCTS_DIR}/BentoKit/BentoKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FlexibleDiff/FlexibleDiff.framework",
@@ -782,7 +782,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TechTest/Pods-TechTest-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TechTest/Pods-TechTest-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
