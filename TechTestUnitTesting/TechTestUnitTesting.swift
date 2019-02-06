@@ -38,18 +38,27 @@ class TechTestUnitTesting: XCTestCase {
     }
     
     func testUsername() {
+        // Could be strengthended further by injecting a test scheduler.
+        var numberOfValues = 0
         reader
             .loadUsername(of: 1)
             .startWithValues { username in
+                numberOfValues = numberOfValues + 1
                 assert(username == "by: Yog-Sothoth")
         }
+
+        assert(numberOfValues == 1, "")
     }
     
     func testComments() {
+        var numberOfValues = 0
         reader
             .loadTotalComments(for: 1)
             .startWithValues { comments in
+                numberOfValues = numberOfValues + 1
                 assert(comments == "Total comments: 2")
             }
+
+        assert(numberOfValues == 1, "")
     }
 }
