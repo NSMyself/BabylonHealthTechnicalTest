@@ -24,7 +24,7 @@ struct FeedBuilder {
             modal: viewController.modalFlow,
             navigation: navController.navigationFlow,
             builder: self,
-            delegate: viewModel
+            observer: viewModel.contextObserver
         )
         
         viewModel.routes

@@ -21,6 +21,8 @@ final class FeedViewModel {
     
     let routes: Signal<Route, NoError>
     let box: Property<Box<Renderer.SectionId, Renderer.RowId>>
+    let context: Signal<Context, NoError>
+    let contextObserver: Signal<Context, NoError>.Observer
     
     var title: String {
         return "feed_tab_title".localized
@@ -60,6 +62,10 @@ final class FeedViewModel {
                     return nil
                 }
             }
+
+        (context, contextObserver) = Signal.pipe()
+
+        context.observeValues(show)
     }
 }
 
@@ -91,7 +97,7 @@ extension FeedViewModel {
     }
 }
 
-extension FeedViewModel: FeedRenderDelegate {
+extension FeedViewModel {
     
     func show(context: Context) {
         switch(context) {

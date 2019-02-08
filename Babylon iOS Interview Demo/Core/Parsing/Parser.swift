@@ -8,6 +8,20 @@
 
 import ReactiveSwift
 
+func transform<T: Decodable>(data: Data?) -> SignalProducer<T, APIError> {
+    return SignalProducer { observable, disposable in
+        guard
+            let data = data,
+            let output = try? JSONDecoder().decode(T.self, from: data) else {
+            observable.send(error: APIError.invalidData)
+            return
+        }
+
+        observable.send(value: output)
+        observable.sendCompleted()
+    }
+}
+
 struct Parser<T: Decodable> {
     
     init() {}

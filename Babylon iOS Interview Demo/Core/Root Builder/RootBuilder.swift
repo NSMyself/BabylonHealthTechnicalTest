@@ -41,7 +41,7 @@ public final class RootBuilder {
 extension RootBuilder {
     
     func make() -> RootViewController {
-        return RootViewController(using: RootViewModel(with: tabs.compactMap(build)))
+        return RootViewController(using: RootViewModel(with: tabs.map(build)))
     }
     
     func build(using tab: Tab) -> UIViewController {
